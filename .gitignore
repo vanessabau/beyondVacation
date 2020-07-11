@@ -1,4 +1,2 @@
-node_modules,
-login.html,
-members.html,
-signup.html
+templates/
+node_modules/
