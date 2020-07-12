@@ -50,4 +50,68 @@ module.exports = function(app) {
       });
     }
   });
+///////////////// ABOVE = user auth/login/signup ------ BELOW = routes for post, viewing, and updating listings
+
+  // Route to post new listing:
+  app.post("/api/posts", (req,res) => {
+    db.Poster.create(req.body).then((list) => {
+      res.json(list);
+    })
+  })
+
+  // Route to get all new listings:
+  app.get("/api/posts", (req,res) => {
+    db.Poster.findAll({}).then((list) => {
+      res.json(list);
+    })
+  })
+
+  // Route to get filtered listings based on category:
+  app.get("/api/posts/:location", (req,res) => {
+    db.Poster.findAll({where: {location: req.params.location}}).then((list) => {
+      res.json(list);
+    })
+  })
+
+  // Route to get filtered listings based on price:
+  app.get("/api/posts/:price", (req,res) => {
+    db.Poster.findAll({where: {price: {$lte: req.params.price}}}).then((list) => {
+      res.json(list);
+    })
+  })
+
+  // Route to get filtered listings based on facilities:
+  app.get("/api/posts/facility", (req,res) => {
+    db.Poster.findAll({where: {facility: true}}).then((list) => {
+      res.json(list);
+    })
+  })
+  
+  // Route to get filtered listings based on party size:
+  app.get("/api/posts/:size", (req,res) => {
+    db.Poster.findAll({where: {size_of_party: {$gte: req.params.size}}}).then((list) => {
+      res.json(list);
+    })
+  })
+
+  // Route to get one listing based on id:
+  app.get("/api/posts/:id", (req,res) => {
+    db.Poster.findOne({where: {id: req.params.id}}).then((list) => {
+      res.json(list);
+    })
+  })
+
+  // Route to update for when a listing is reserved:
+  app.put("/api/posts", (req,res) => {
+    db.Poster.update(req.body, {where: {id: req.body.id}}).then((list) => {
+      res.json(list);
+    })
+  })
+
+  // Route to delete a listing:
+  app.delete("/api/posts/:id", (req,res) => {
+    db.Poster.destroy({where: {id: req.params.id}}).then((list) => {
+      res.json(list);
+    })
+  })
 };

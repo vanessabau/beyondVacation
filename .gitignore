@@ -1,2 +1,7 @@
 templates/
 node_modules/
+.env
+login.html
+members.html
+signup.html
+
