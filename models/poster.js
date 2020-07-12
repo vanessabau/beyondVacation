@@ -1,14 +1,14 @@
-//Sequelize table for database
+//Sequelize table for database and export
 module.exports = function(sequelize, DataTypes) {
     const Poster = sequelize.define("Poster", {
-        property_name: {
+        property_name: {//name of property, e.g. oasis in the hills
             type: DataTypes.STRING,
             allowNull: false,
             validate: {
                 len: [1, 120]
             }
         },
-        location: {
+        location: {//category of rental, e.g. backyard, campsite
             type: DataTypes.STRING,
             allowNull: false,
         },
