@@ -25,5 +25,3 @@ module.exports = function(app) {
   });
 };
 
-//change to res.render("signup")<---change this to index?
-//and grab data from database to fill in the different pages
