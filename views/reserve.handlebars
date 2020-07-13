@@ -1,142 +1,224 @@
 <!doctype html>
 <html lang="en">
-  <head>
+
+<head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link href="../../public/stylesheets/style.css" rel="stylesheet">
-    <title>Beyond Vacation List</title>
-  </head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="../public/stylesheets/style.css" rel="stylesheet">
+    <title>Reserve Rental</title>
+</head>
 
-  <body>
+<body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" href="#">Navbar</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+            aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-          <div class="navbar-nav">
-            <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
-            <a class="nav-item nav-link" href="#">Features</a>
-            <a class="nav-item nav-link" href="#">Pricing</a>
-            <a class="nav-item nav-link disabled" href="#">Navbar Link</a>
-          </div>
+            <div class="navbar-nav">
+                <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
+                <a class="nav-item nav-link" href="#">Browse Rentals</a>
+                <a class="nav-item nav-link" href="#">List Rental</a>
+                <a class="nav-item nav-link disabled" href="#">Login</a>
+            </div>
         </div>
-      </nav>
+    </nav>
 
-      <div class="jumbotron jumbotron-fluid">
+    <div class="jumbotron jumbotron-fluid">
         <div class="container">
-          <h1 class="display-4" style="text-align: center;">Select your booking image</h1>
+            <h1 class="display-4" style="text-align: center;">Booking page image here</h1>
         </div>
-      </div>
+    </div>
 
 
-      <div class="container">
-          <div class="row">
-              <div class="col">
+    <div class="container">
+        <div class="row">
+            <div class="col">
                 <div class="card">
                     <div class="card-header">
-                      REQUIRE USERS TO LOGIN TO VIEW BOOKINGS
+                        RESERVE RENTAL
                     </div>
                     <div class="card-body">
-                    <form>
-                        <div class="form-row">
-                          <div class="form-group col-md-6">
-                            <label for="inputEmail4">Select rental type</label>
-                            <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
-                          </div>
-                          <div class="form-group col-md-6">
-                            <label for="inputPassword4">Data field</label>
-                            <input type="password" class="form-control" id="inputPassword4" placeholder="Password">
-                          </div>
-                        </div>
-                        <div class="form-group">
-                          <label for="inputAddress">Dates(?)</label>
-                          <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
-                        </div>
-                        <div class="form-group">
-                          <label for="inputAddress2">Data field</label>
-                          <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
-                        </div>
-                        <div class="form-row">
-                          <div class="form-group col-md-6">
-                            <label for="inputCity">Data field</label>
-                            <input type="text" class="form-control" id="inputCity">
-                          </div>
-                          <div class="form-group col-md-4">
-                            <label for="inputState">State</label>
-                            <select id="inputState" class="form-control">
-                              <option selected>Choose...</option>
-                              <option>...</option>
-                            </select>
-                          </div>
-                          <div class="form-group col-md-2">
-                            <label for="inputZip">Zip</label>
-                            <input type="text" class="form-control" id="inputZip">
-                          </div>
-                        </div>
-                        <div class="form-group">
-                          <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="gridCheck">
-                            <label class="form-check-label" for="gridCheck">
-                              Check me out
-                            </label>
-                          </div>
-                        </div>
-                        <button type="submit" class="btn btn-primary">Sign in</button>
-                      </form>
-                    </div>
-                  </div>
-              </div>
-          </div>
-      </div>
+                        <form>
+                            <div class="form-row">
 
-      <div class="container" id="vaca-list" style="margin-top:30px">
-          <div class="row">
+                                <div class="dropdown col-md-4">
+                                    <label for="select rental type">Select rental type</label>
+                                    <div>
+                                        <button class="btn btn-outline-secondary dropdown-toggle" type="button"
+                                            id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true"
+                                            aria-expanded="false">Select Rental type</button>
 
-              <div class="col">
-                <div class="card" style="width: 18rem;">
-                    <img class="card-img-top" src="https://www.familyhandyman.com/wp-content/uploads/2018/02/handcrafted-log-home.jpg" alt="Card image cap">
-                    <div class="card-body">
-                      <p class="card-text">Vacation Rental</p>
-                    </div>
-                  </div>
-                </div>
+                                        <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                                            <button class="dropdown-item" type="button">RV</button>
+                                            <button class="dropdown-item" type="button">Campsite</button>
+                                            <button class="dropdown-item" type="button">Farmland experience</button>
+                                            <button class="dropdown-item" type="button">Waterfront vista</button>
+                                            <button class="dropdown-item" type="button">Backyard Oasis</button>
+                                        </div>
+                                    </div>
+                                </div>
 
-                <div class="col">
-                    <div class="card" style="width: 18rem;">
-                        <img class="card-img-top" src="https://wvr-d7-files-prod.s3.amazonaws.com/styles/300x300/s3/experiences_thumbnails/300x300-NWFL%20Beaches-2017.jpg?itok=P1qKGvry" alt="Card image cap">
-                        <div class="card-body">
-                          <p class="card-text">Vacation Rental</p>
-                        </div>
-                      </div>
-                    </div>
 
-                    <div class="col">
-                        <div class="card" style="width: 18rem;">
-                            <img class="card-img-top" src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/camping-ideas-1561136670.jpg?crop=0.669xw:1.00xh;0.166xw,0&resize=640:*" alt="Card image cap">
-                            <div class="card-body">
-                              <p class="card-text">Vacation Rental</p>
+                                <div class="form-group col-md-4">
+                                    <label for="select-state">State</label>
+                                    <select name="select-state" id="select-state" class="form-control">
+                                        <option selected>Select State</option>
+                                        <option value="alabama">AL</option>
+                                        <option value="alaska">AK</option>
+                                        <option value="arkansas">AR</option>
+                                        <option value="california">CA</option>
+                                        <option value="colorado">CO</option>
+                                        <option value="connecticut">CT</option>
+                                        <option value="delaware">DE</option>
+                                        <option value="florida">FL</option>
+                                        <option value="georgia">GA</option>
+                                        <option value="hawaii">HI</option>
+                                        <option value="idaho">ID</option>
+                                        <option value="illinois">IL</option>
+                                        <option value="indiana">IN</option>
+                                        <option value="iowa">IA</option>
+                                        <option value="kansas">KS</option>
+                                        <option value="kentucky">KY</option>
+                                        <option value="louisiana">LA</option>
+                                        <option value="maine">ME</option>
+                                        <option value="maryland">MD</option>
+                                        <option value="massachusetts">MA</option>
+                                        <option value="michigan">MI</option>
+                                        <option value="minnesota">MN</option>
+                                        <option value="mississippi">MS</option>
+                                        <option value="missouri">MO</option>
+                                        <option value="montana">MT</option>
+                                        <option value="nebraska">NE</option>
+                                        <option value="nevada">nv</option>
+                                        <option value="new-hampshire">NH</option>
+                                        <option value="new-jersey">NJ</option>
+                                        <option value="new-mexico">NM</option>
+                                        <option value="new-york">NY</option>
+                                        <option value="north-carolina">NC</option>
+                                        <option value="north-dakota">ND</option>
+                                        <option value="ohio">OH</option>
+                                        <option value="oklahoma">OK</option>
+                                        <option value="oregon">OR</option>
+                                        <option value="pennsylvania">PA</option>
+                                        <option value="rhode-island">RI</option>
+                                        <option value="south-carolina">SC</option>
+                                        <option value="south-dakota">SD</option>
+                                        <option value="tennessee">TN</option>
+                                        <option value="texas">TX</option>
+                                        <option value="utah">UT</option>
+                                        <option value="vermont">VT</option>
+                                        <option value="virginia">VA</option>
+                                        <option value="washington">WA</option>
+                                        <option value="west-virginia">WV</option>
+                                        <option value="wisconsin">WI</option>
+                                        <option value="wyoming">WY</option>
+
+                                    </select>
+                                </div>
+
                             </div>
-                          </div>
-                        </div>
 
+
+                            <div class="form-row">
+                                <div class="form-group col-md-4">
+                                    <label for="inputPartySize">Select party size</label>
+                                    <select name="inputPartySize" id="inputPartySize" class="form-control">
+                                        <option selected>Choose...</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">2</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                        <option value="6">6</option>
+                                        <option value="7">7</option>
+                                        <option value="8">8</option>
+                                        <option value="9">9</option>
+                                        <option value="10">10</option>
+                                        <option value="11">11</option>
+                                        <option value="12">12+</option>
+                                    </select>
+                                </div>
+                                <div class="form-group col-md-4">
+                                    <label for="inputState">Current rental status</label>
+                                    <select id="inputState" class="form-control">
+                                        <option selected>Currently Available</option>
+                                        <option value="reserved">Currently Reserved</option>
+                                    </select>
+                                </div>
+
+                            </div>
+
+                            <button type="submit" class="btn btn-success">Submit</button>
+                        </form>
+                    </div>
+                </div>
             </div>
-      </div>
+        </div>
+    </div>
 
-      <div class="spaceholder" style="height: 100px;"></div>
-      <div id="footer" style="text-align: center;">
+    <div class="container" id="vaca-list" style="margin-top:30px">
+
+        <div class="row">
+            <!--POPULATE THIS AREA WITH CARDS OF RENTAL LISTINGS-->
+            <div class="col">
+                <div class="card" style="width: 18rem;">
+                    <img class="card-img-top"
+                        src="https://www.familyhandyman.com/wp-content/uploads/2018/02/handcrafted-log-home.jpg"
+                        alt="Card image cap">
+                    <div class="card-body">
+                        <p class="card-text">Vacation Rental</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="card" style="width: 18rem;">
+                    <img class="card-img-top"
+                        src="https://wvr-d7-files-prod.s3.amazonaws.com/styles/300x300/s3/experiences_thumbnails/300x300-NWFL%20Beaches-2017.jpg?itok=P1qKGvry"
+                        alt="Card image cap">
+                    <div class="card-body">
+                        <p class="card-text">Vacation Rental</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="card" style="width: 18rem;">
+                    <img class="card-img-top"
+                        src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/camping-ideas-1561136670.jpg?crop=0.669xw:1.00xh;0.166xw,0&resize=640:*"
+                        alt="Card image cap">
+                    <div class="card-body">
+                        <p class="card-text">Vacation Rental</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="spaceholder" style="height: 100px;"></div>
+    <div id="footer" style="text-align: center;">
         Footer content here
-      </div>
+    </div>
 
-      <!-- Optional JavaScript -->
+    <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-  
-  </body>
-  </html>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>
