@@ -20,7 +20,7 @@ module.exports = function(sequelize, DataTypes) {
             }
         },
         size_of_party: {//number of people can stay at location
-            type: DataTypes.INT,
+            type: DataTypes.INTEGER,
             validate: {
                 len: [1]
             }
