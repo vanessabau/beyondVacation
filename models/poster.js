@@ -12,6 +12,22 @@ module.exports = function(sequelize, DataTypes) {
             type: DataTypes.STRING,
             allowNull: false,
         },
+        address: {
+            type: DataTypes.STRING,
+            allowNull: false
+        },
+        city: {
+            type: DataTypes.STRING,
+            allowNull: false
+        },
+        state: {
+            type: DataTypes.STRING,
+            allowNull: false
+        },
+        zip: {
+            type: DataTypes.INTEGER,
+            allowNull: false
+        },
         price: {//less than 10,000 set price
             type: DataTypes.DECIMAL(4, 2),
             allowNull: false,
