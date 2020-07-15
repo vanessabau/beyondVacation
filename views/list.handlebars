@@ -22,7 +22,7 @@
                         <h5>LIST VACATION RENTAL</h5>
                     </div>
                     <div class="card-body">
-                        <form>
+                        <form class="list">
                             <div class="form-row">
 
                                 <div class="form-group col-md-6">
@@ -34,17 +34,14 @@
                                 <div class="dropdown col-md-6">
                                     <label for="select rental type">Select rental type</label>
                                     <div>
-                                        <button class="btn btn-outline-secondary dropdown-toggle" type="button"
-                                            id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true"
-                                            aria-expanded="false">Select Rental type</button>
-
-                                        <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                                            <button class="dropdown-item" type="button">RV</button>
-                                            <button class="dropdown-item" type="button">Campsite</button>
-                                            <button class="dropdown-item" type="button">Farmland experience</button>
-                                            <button class="dropdown-item" type="button">Waterfront vista</button>
-                                            <button class="dropdown-item" type="button">Backyard Oasis</button>
-                                        </div>
+                                            <select name="list-selections" id="list-selections" class="form-control">
+                                                <option value="rv">RV</option>option>
+                                                <option value="campsites">Campsite</option>
+                                                <option value="farmLand">Farmland experience</option>
+                                                <option value="waterFront">Waterfront vista</option>
+                                                <option value="backyard">Backyard Oasis</option>
+                                            </select>
+                                        
                                     </div>
                                 </div>
 
