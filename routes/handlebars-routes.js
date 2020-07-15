@@ -13,7 +13,7 @@ module.exports = function(app) {
     //if user is logged in the list page renders
     app.get("/list", isAuthenticated, (req, res) => {
         res.render("list", {
-            js: "list.js"
+            js: "listRental.js"
         });
     });
 
