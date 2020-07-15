@@ -5,27 +5,39 @@ const isAuthenticated = require("../config/middleware/isAuthenticated");
 //===============================================================================
 module.exports = function(app) {
     app.get("/", (req, res) => {
-        res.render("index");
+        res.render("index", {
+            js: "index.js"
+        });
     });
     //checks to see if user is logged in, if they aren't isAuthenticated middleware redirects them to login page
     //if user is logged in the list page renders
     app.get("/list", isAuthenticated, (req, res) => {
-        res.render("list");
+        res.render("list", {
+            js: "list.js"
+        });
     });
 
     app.get("/browse", isAuthenticated, (req, res) => {
-       res.render("browse");
+       res.render("reserve", {
+           js: "reserve.js"
+       });
     });
 
     app.get("/login", (req, res) => {
-        res.render("login");
+        res.render("login", {
+            js: "login.js"
+        });
     });
 
     app.get("/signup", (req, res) => {
-        res.render("signup");
-    })
+        res.render("signup", {
+            js: "signup.js"
+        });
+    });
 
-    // app.get("/profile", (req, res) => {
-    //     res.render("profile")
-    // })
+    app.get("/members", (req, res) => {
+        res.render("members", {
+            js: "members.js"
+        });
+    });
 };
