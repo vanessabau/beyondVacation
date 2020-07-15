@@ -1,14 +1,15 @@
 $(document).ready(function () {
     // Getting references to our form and inputs
-    var listForm = $("form.list");
+    var listForm = $("form.list"); //checked
     var propertyInput = $("input#property-name");    // poster property name
-    var rentalInput = $("button#dropdownMenu2"); //
-    var addressInput = $("input#inputAddress");
-    var cityInput = $("input#inputCity");
-    var stateInput = $("select#inputState"); //
-    var zipInput = $("input#inputZip");
-    var priceInput = $("input#inputPrice");
-    var partyInput = $("select#inputPartySize"); //
+    var rentalInput = $("select#list-selections"); //checked
+    var addressInput = $("input#inputAddress"); //checked
+    var cityInput = $("input#inputCity"); //checked
+    var stateInput = $("select#inputState"); // checked
+    var zipInput = $("input#inputZip"); //checked
+    var priceInput = $("input#inputPrice"); //checked
+    var partyInput = $("select#inputPartySize"); //checked
+    var facilityInput = $("select#facility");
 
     // When the form is submitted, we validate there's an name and location entered
     listForm.on("submit", function (event) {
@@ -21,17 +22,18 @@ $(document).ready(function () {
             state: stateInput.val().trim(),
             zip: zipInput.val().trim(),
             price: priceInput.val(),
-            party: partyInput.val().trim()
+            party: partyInput.val().trim(),
+            facility: facilityInput.val().trim()
         };
 
         console.log(userData);
 
-        if (!userData.property || !userData.rental || !userData.address || !userData.city || !userData.state || !userData.zip || !userData.price || !userData.party) {
+        if (!userData.property || !userData.rental || !userData.address || !userData.city || !userData.state || !userData.zip || !userData.price || !userData.party || !userData.facility) {
             return;
         }
 
         // If we have an name and location we run the loginUser function and clear the form
-        listUser(userData.property, userData.rental, userData.address, userData.city, userData.state, userData.zip, userData.price, userData.party);
+        listUser(userData.property, userData.rental, userData.address, userData.city, userData.state, userData.zip, userData.price, userData.party, userData.facility);
         propertyInput.val("");
         rentalInput.val("");
         addressInput.val("");
@@ -40,7 +42,7 @@ $(document).ready(function () {
         zipInput.val("");
         priceInput.val("");
         partyInput.val("");
-
+        facilityInput.val("");
     });
 
 
@@ -59,7 +61,7 @@ $(document).ready(function () {
     //post
     //ajax req then parse res
     // loginUser does a post to our "api/login" route and if successful, redirects us the the members page
-    function listUser(property, rental, address, city, state, zip, price, party) { // called on right side 
+    function listUser(property, rental, address, city, state, zip, price, party, facility) { // called on right side 
         $.post("/api/posts", { // left side is based on sequelize
             property_name: property,
             location: rental,
@@ -68,7 +70,8 @@ $(document).ready(function () {
             state: state,
             zip: zip,
             price: price,
-            size_of_party: party
+            size_of_party: party,
+            facility: facility
         })
             .then(function () {
                 window.location.replace("/list"); //later for whichever html
