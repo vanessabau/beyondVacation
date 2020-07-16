@@ -70,6 +70,18 @@ module.exports = function (app) {
     })
   })
 
+  // Route to get fully filtered listings
+  app.get("/api/posts/filtered", (req,res) => {
+    db.Poster.findAll({where: {
+      location: req.body.location,
+      price: req.body.price,
+      size_of_party: req.body.size_of_party,
+      facility: req.body.facility
+    }}).then((list) => {
+      res.json(list);
+    })
+  })
+
   // Route to get filtered listings based on category:
   app.get("/api/posts/:location", (req, res) => {
     db.Poster.findAll({ where: { location: req.params.location } }).then((list) => {
