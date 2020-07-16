@@ -41,17 +41,20 @@ module.exports = function (app) {
   // Route for getting some data about our user to be used client side
   app.get("/api/user_data", (req, res) => {
     if (!req.user) {
+      console.log("trying!");
       // The user is not logged in, send back an empty object
       res.json({});
     } else {
       // Otherwise send back the user's email and id
       // Sending back a password, even a hashed password, isn't a good idea
+      //console.log(req.user);
       res.json({
         firstName: req.user.firstName,
         lastName: req.user.lastName,
         email: req.user.email,
         id: req.user.id
       });
+      console.log(req.body);
     }
   });
   ///////////////// ABOVE = user auth/login/signup ------ BELOW = routes for post, viewing, and updating listings
