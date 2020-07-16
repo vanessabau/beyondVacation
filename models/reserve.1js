@@ -1,0 +1,12 @@
+//Sequelize table for database and export
+module.exports = function(sequelize, DataTypes) {
+    const Reserve = sequelize.define("Reserve", {
+        reserved: {
+            
+        },
+        dateReserved: {
+
+        }
+    });
+    return Reserve;
+};
