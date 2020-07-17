@@ -117,7 +117,8 @@ module.exports = function (app) {
   app.get("/api/posts/:id", (req, res) => {
     db.Poster.findOne({ where: { id: req.params.id } }).then((list) => {
       res.json(list);
-    })
+    });
+    console.log("api-routes, list" + list);
   })
 
   // Route to update for when a listing is reserved:
