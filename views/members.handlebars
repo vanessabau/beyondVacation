@@ -1,4 +1,4 @@
-   <nav class="navbar navbar-expand-lg navbar-light bg-light">
+   <nav class="navbar navbar-expand-md navbar-light bg-light">
     <a class="navbar-brand" href="/" style="color:#FF6666; font-size:27px">BEYOND<p style="color: #339966; font-size:22px">VACATION</p</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
       aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -24,123 +24,33 @@
 
                 <div class="card" style="margin-top: 32px">
                     <div class="card-header">
-                        <h5>Welcome {{firstName}} {{lastName}}
-                            <span id="first-name"></span>
-                            <span id="last-name"></span>
-                            </h5>
+                        <h5 style="word-spacing: 1rem;">WELCOME <span id="first-name"></span> <span id="last-name"></span> email: <span id="email"></span>
+</h5>
                     </div>
                     <div class="card-body">
                         <form>
-                            <div class="form-row">
-
-                                <div class="form-group col-md-6">
-                                    <label for="firstName-members">First Name</label>
-                                    <input type="firstName-members" class="form-control" id="firstName-members"
-                                        placeholder="First Name">
-                                </div>
-
-                                <div class="form-group col-md-6">
-                                    <label for="lastName-members">Last Name</label>
-                                    <input type="lastName-members" class="form-control" id="lastName-members"
-                                        placeholder="Last Name">
-                                </div>
-
-                            </div>
-                            <hr>
+                          
                             <div class="form-row">
                                 <h5>YOUR LISTINGS</h>
                             </div>
 
-                            <div class="form-row">
+                            <div class="form-row" id="member-listings">
                                 <!--POPULATE THIS AREA WITH CARDS OF RENTAL LISTINGS-->
-                                <div class="col">
-                                    <div class="card" style="width: 18rem; padding:0px">
-                                        <img class="card-img-top"
-                                            src="https://www.familyhandyman.com/wp-content/uploads/2018/02/handcrafted-log-home.jpg"
-                                            alt="Card image cap">
-                                        <div class="card-body">
-                                            <p class="card-text">Vacation Rental</p>
-                                             <button type="button" class="btn btn-outline-success">Delete Listing</button>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col">
-                                    <div class="card" style="width: 18rem; padding:0px">
-                                        <img class="card-img-top"
-                                            src="https://wvr-d7-files-prod.s3.amazonaws.com/styles/300x300/s3/experiences_thumbnails/300x300-NWFL%20Beaches-2017.jpg?itok=P1qKGvry"
-                                            alt="Card image cap">
-                                        <div class="card-body">
-                                            <p class="card-text">Vacation Rental</p>
-                                            <button type="button" class="btn btn-outline-success">Delete Listing</button>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col">
-                                    <div class="card" style="width: 18rem; padding:0px">
-                                        <img class="card-img-top"
-                                            src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/camping-ideas-1561136670.jpg?crop=0.669xw:1.00xh;0.166xw,0&resize=640:*"
-                                            alt="Card image cap">
-                                        <div class="card-body">
-                                            <p class="card-text">Vacation Rental</p>
-                                            <button type="button" class="btn btn-outline-success">Delete Listing</button>
-                                        </div>
-                                    </div>
-                                </div>
-
                             </div>
 
                             <hr>
+
                             <div class="form-row">
                                 <h5>YOUR RENTALS</h>
                             </div>
 
-                            <div class="form-row">
+                            <div class="form-row" id="member-reservations">
                                 <!--POPULATE THIS AREA WITH CARDS OF RENTAL RESERVATIONS-->
-                                <div class="col">
-                                    <div class="card" style="width: 18rem; padding:0px">
-                                        <img class="card-img-top"
-                                            src="https://www.familyhandyman.com/wp-content/uploads/2018/02/handcrafted-log-home.jpg"
-                                            alt="Card image cap">
-                                        <div class="card-body">
-                                            <p class="card-text">Vacation Rental</p>
-                                            <button type="button" class="btn btn-outline-success delete">Delete Rental</button>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col">
-                                    <div class="card" style="width: 18rem; padding:0px">
-                                        <img class="card-img-top"
-                                            src="https://wvr-d7-files-prod.s3.amazonaws.com/styles/300x300/s3/experiences_thumbnails/300x300-NWFL%20Beaches-2017.jpg?itok=P1qKGvry"
-                                            alt="Card image cap">
-                                        <div class="card-body">
-                                            <p class="card-text">Vacation Rental</p>
-                                            <button type="button" class="btn btn-outline-success delete">Delete Rental</button>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col">
-                                    <div class="card" style="width: 18rem; padding:0px">
-                                        <img class="card-img-top"
-                                            src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/camping-ideas-1561136670.jpg?crop=0.669xw:1.00xh;0.166xw,0&resize=640:*"
-                                            alt="Card image cap">
-                                        <div class="card-body">
-                                            <p class="card-text">Vacation Rental</p>
-                                            <button type="button" class="btn btn-outline-success delete">Delete Rental</button>
-                                        </div>
-                                    </div>
-                                </div>
-
                             </div>
 
                         </form>
                     </div>
                 </div>
-
-
             </div>
         </div>
 
