@@ -6,6 +6,40 @@
   
   
 }
+.jumbotron{
+  background-image: url("https://imagesvc.meredithcorp.io/v3/mm/image?q=85&c=sc&poi=%5B800%2C500%5D&w=1600&h=838&url=https%3A%2F%2Fstatic.onecms.io%2Fwp-content%2Fuploads%2Fsites%2F28%2F2018%2F05%2Fgrand-teton-national-park-wyoming-SCENICCAMP0118.jpg");
+  background-size: cover;
+  background-position: center center;
+  min-height: 250px;
+  
+}
+
+#browse-image{
+  background-image: url(../images/AdobeStock_297569922.jpeg);
+  background-position: center center;
+  background-size: cover; 
+  min-height: 200px;
+  border: 3px solid white;
+  border-radius: 8px;
+  text-align: center center;
+  font-size: larger;
+}
+
+#list-image{
+  background-image: url(../images/AdobeStock_317029051.jpeg);
+  background-position: center center;
+  background-size: cover; 
+  min-height: 200px;
+  border: 3px solid white;
+  border-radius: 8px;
+  text-align: center center;
+  font-size: larger;
+}
+
+.card-title{
+  color: white;
+}
+
 .highlight{
   background-color: lightgreen;
 }

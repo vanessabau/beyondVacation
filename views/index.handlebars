@@ -19,32 +19,34 @@
 
   <div class="jumbotron jumbotron-fluid">
     <div class="container">
-      <h1 class="display-4" style="text-align: center;">AMAZING IMAGE HERE</h1>
+      <h1 class="display-4" style="visibility: hidden">AMAZING IMAGE HERE</h1>
     </div>
   </div>
 
   <div class="row" id="inspire-quote">
     <div class="col highlight" style="text-align: center;">
-      <h5>Informational quote here</h5>
+      <h5>For each loop that grabs the property_names from the Posters database
+        {{#each quote}}
+          {{dataValues.property_name}}
+        {{/each}}<h5>
     </div>
 
   </div>
   <div class="container">
     <div class="row" style="padding-top: 30px; padding-bottom: 30px;">
+
       <div class="col-sm-6">
-        <div class="card">
-          <div class="card-body">
+        <div class="card" id="browse-image">
+          <div class="card-body" >
             <a href="/browse" class="card-title">Browse Rentals</a>
-            <p class="card-text">Photo backdrop entire card will be a link</p>
           </div>
         </div>
       </div>
+
       <div class="col-sm-6">
-        <div class="card">
+        <div class="card" id="list-image">
           <div class="card-body">
             <a href="/list" class="card-title">List Rental</a>
-            <p class="card-text">Photo backdrop entire card will be a link</p>
-
           </div>
         </div>
       </div>
