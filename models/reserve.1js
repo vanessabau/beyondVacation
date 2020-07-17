@@ -2,10 +2,14 @@
 module.exports = function(sequelize, DataTypes) {
     const Reserve = sequelize.define("Reserve", {
         reservedBy: {
-            
+            //remove this, this would be the foreign key, name the foreign key this?
         },
-        dateReserved: {
-
+        reserved: {
+            /*
+            boolean
+            
+            
+            */
         }
     });
     return Reserve;
@@ -14,3 +18,15 @@ module.exports = function(sequelize, DataTypes) {
 //belongs to poster and user
 
 //change belongsTo to belongsToMany in Poster model so can do a {through: reserve} in poster model
+
+
+
+
+
+
+
+////////////////////
+ignore:
+dateReserved: {
+
+        }

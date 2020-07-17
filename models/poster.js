@@ -48,6 +48,10 @@ module.exports = function(sequelize, DataTypes) {
         reserved: {
             type: DataTypes.BOOLEAN,
             defaultValue: false
+        },
+        reservedBy: {
+            type: DataTypes.STRING,
+            allowNull: true
         }
     });
     //Poster belongs to User
