@@ -27,6 +27,8 @@ $(document).ready(() => {
     function reserveRental() {
         //put content here, for now console.log
         console.log("Rental Reserved");
+
+        //updates status of location to reserved and updates reserved-by to member id who reserves it
     };
 
     // This function displays a message when there are no rentals
@@ -46,9 +48,7 @@ $(document).ready(() => {
             `<div class="card" style="width: 18rem;">
             <img class="card-img-top" src="https://www.familyhandyman.com/wp-content/uploads/2018/02/handcrafted-log-home.jpg" alt="Card image cap">
             <div class="card-body">
-
-              <h5 class="card-title">${rentalData[i].property_name}</h5>
-
+                <h5>${rentalData[i].property_name}</h5>
             </div>
             <ul class="list-group list-group-flush">
               <li class="list-group-item"><h6>Property type: ${rentalData[i].location}</h6>
