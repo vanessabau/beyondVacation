@@ -68,7 +68,7 @@ module.exports = function (app) {
 
   // Route to get all new listings:
   app.get("/api/posts", (req, res) => {    
-    db.Poster.findAll({}).then((list) => {
+    db.Poster.findAll({include: db.User}).then((list) => {
       res.json(list);
     });
   });
