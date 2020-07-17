@@ -1,7 +1,7 @@
 //Sequelize table for database and export
 module.exports = function(sequelize, DataTypes) {
     const Reserve = sequelize.define("Reserve", {
-        reserved: {
+        reservedBy: {
             
         },
         dateReserved: {
@@ -10,3 +10,7 @@ module.exports = function(sequelize, DataTypes) {
     });
     return Reserve;
 };
+
+//belongs to poster and user
+
+//change belongsTo to belongsToMany in Poster model so can do a {through: reserve} in poster model

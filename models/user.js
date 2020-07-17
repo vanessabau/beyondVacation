@@ -26,7 +26,7 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: false
     }
   });
-  //Associating User with Posts
+  //Associating User with Poster model
   User.associate = function(models) {
     //When User is deleted, also delete any associated Posts and Reservations
     User.hasMany(models.Poster, {

@@ -67,11 +67,11 @@ module.exports = function (app) {
   })
 
   // Route to get all new listings:
-  app.get("/api/posts", (req, res) => {
+  app.get("/api/posts", (req, res) => {    
     db.Poster.findAll({}).then((list) => {
       res.json(list);
-    })
-  })
+    });
+  });
 
   // Route to get fully filtered listings
   app.get("/api/posts/filtered", (req,res) => {
