@@ -13,6 +13,7 @@ $(document).ready(function () {
 
     function getUserInfo() {
         $.get("/api/user_data").then((data) => {
+            console.log(data.id);
             return data.id;
         });
     };
