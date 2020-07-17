@@ -52,14 +52,14 @@ $(document).ready(function () {
 
 
 
-    //price range
-    $('input').on('input', function () {
+    // //price range
+    // $('input').on('input', function () {
 
-        if ((price !== '') && (price.indexOf('.') === -1)) {
+    //     if ((price !== '') && (price.indexOf('.') === -1)) {
 
-            $(this).val(Math.max(Math.min(price, 3000), -0));
-        }
-    });
+    //         $(this).val(Math.max(Math.min(price, 3000), -0));
+    //     }
+    // });
 
 
     //post

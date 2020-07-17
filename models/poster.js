@@ -48,7 +48,21 @@ module.exports = function(sequelize, DataTypes) {
         reserved: {
             type: DataTypes.BOOLEAN,
             defaultValue: false
+        },
+        reservedBy: {
+            type: DataTypes.STRING,
+            allowNull: true
         }
     });
+    //Poster belongs to User
+    Poster.associate = function(models) {
+        //Poster can't be created without a User
+        Poster.belongsTo(models.User, {
+            foreignKey: {
+                allowNull: false
+            }
+        });
+    };
+
     return Poster;
 };
