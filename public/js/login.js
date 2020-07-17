@@ -31,12 +31,10 @@ $(document).ready(() => {
       password: password
     })
       .then(() => {
-        //console.log(message);
         window.location.replace("/members");
-        // If there's an error, log the error
       })
-      .catch(err => {
-        console.log(err);
-      });
+      // .catch(err => {
+      //   console.log(err);
+      // });
   }
 });
