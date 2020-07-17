@@ -49,14 +49,22 @@
 }
 
 .highlight{
-  background-color: lightgreen;
+  background-color: #339966;
+  padding: 15px;
+  color: white;
+}
+.highlight2{
+  background-color: #006699;
+  padding: 15px;
+  color: white;
 }
 #footer {
   position: fixed;
   left: 0;
   bottom: 0;
   width: 100%;
-  background-color: lightgreen;
+  background-color: #669966;
   color: white;
   text-align: center;
+  padding: 15px;
 }
