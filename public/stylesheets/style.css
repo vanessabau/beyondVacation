@@ -3,15 +3,18 @@
 }
 .nav-item{
   font-size: 14px;
-  
-  
 }
-.jumbotron{
+#jumbo-home{
   background-image: url("https://imagesvc.meredithcorp.io/v3/mm/image?q=85&c=sc&poi=%5B800%2C500%5D&w=1600&h=838&url=https%3A%2F%2Fstatic.onecms.io%2Fwp-content%2Fuploads%2Fsites%2F28%2F2018%2F05%2Fgrand-teton-national-park-wyoming-SCENICCAMP0118.jpg");
   background-size: cover;
   background-position: center center;
+  min-height: 250px;  
+}
+#jumbo-reserve{
+  background-image: url(../images/AdobeStock_296282520.jpeg);
+  background-size: cover;
+  background-position: center center;
   min-height: 250px;
-  
 }
 
 #browse-image{
@@ -21,8 +24,10 @@
   min-height: 200px;
   border: 3px solid white;
   border-radius: 8px;
-  text-align: center center;
-  font-size: larger;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: x-large;
 }
 
 #list-image{
@@ -32,12 +37,15 @@
   min-height: 200px;
   border: 3px solid white;
   border-radius: 8px;
-  text-align: center center;
-  font-size: larger;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: x-large;
 }
 
-.card-title{
+.card-title {
   color: white;
+  text-shadow: 2px 2px 4px #000000;
 }
 
 .highlight{
