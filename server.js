@@ -1,10 +1,13 @@
 // Requiring necessary npm packages
 const express = require("express");
 const session = require("express-session");
+
 // Requiring passport as we've configured it
 const passport = require("./config/passport");
 // Read and set environment variables
 require("dotenv").config();
+
+const flash = require("req-flash");
 
 // Setting up port and requiring models for syncing
 const PORT = process.env.PORT || 3000;
@@ -22,7 +25,8 @@ app.use(
 );
 app.use(passport.initialize());
 app.use(passport.session());
-
+app.use(flash());
+flash({ locals: 'flash' })
 // Set Handlebars.
 var exphbs = require("express-handlebars");
 
