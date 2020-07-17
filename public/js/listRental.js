@@ -11,6 +11,12 @@ $(document).ready(function () {
     var partyInput = $("select#inputPartySize"); //checked
     var facilityInput = $("select#facility");
 
+    function getUserInfo() {
+        $.get("/api/user_data").then((data) => {
+            return data.id;
+        });
+    };
+
     // When the form is submitted, we validate there's an name and location entered
     listForm.on("submit", function (event) {
         event.preventDefault();
@@ -87,11 +93,6 @@ $(document).ready(function () {
             });
     }
 
-    function getUserInfo() {
-        $.get("/api/user_data").then((data) => {
-            return data.id;
-        })
-    }
 });
 
 //put

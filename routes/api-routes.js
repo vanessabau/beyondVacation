@@ -61,9 +61,10 @@ module.exports = function (app) {
 
   // Route to post new listing:
   app.post("/api/posts", (req, res) => {
-    db.Poster.create(req.body).then((list) => {
+    db.Poster.create(req.body, {include: db.User}).then((list) => {
       res.json(list);
-    })
+      console.log(list)
+    });
   })
 
   // Route to get all new listings:
