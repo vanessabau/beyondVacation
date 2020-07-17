@@ -50,5 +50,15 @@ module.exports = function(sequelize, DataTypes) {
             defaultValue: false
         }
     });
+    //Poster belongs to User
+    Poster.associate = function(models) {
+        //Poster can't be created without a User
+        Poster.belongsTo(models.User, {
+            foreignKey: {
+                allowNull: false
+            }
+        });
+    };
+
     return Poster;
 };
