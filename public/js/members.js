@@ -42,19 +42,46 @@ $(document).ready(() => {
       for (i=0; i<memberListings.length; i++){
         //display the member's listings
         createListCard();
-      }; 
+        }; 
       };
     });
   };
 
   //function to create listing card
   function createListCard(){
-    var newListing = $("<div>");
+
+      var newListing = $("<div>");
       newListing.addClass("col");
+
+      var locationCol = memberListings[i].location;
+      var imgSrc;
+
+      switch(locationCol){
+        case "RV":
+            imgSrc = "../images/AdobeStock_rv.jpeg";
+            break;
+        case "Campsites":
+            imgSrc = "../images/AdobeStock_default.jpeg";
+            break;
+        case "Farmland":
+            imgSrc = "../images/AdobeStock_farmland.jpeg";
+            break;
+        case "Waterfront":
+            imgSrc = "../images/AdobeStock_waterfront.jpeg";
+            break;
+        case "Backyard":
+            imgSrc = "../images/AdobeStock_backyard.jpeg";
+            break;
+        default:
+            imgSrc = "../images/AdobeStock_campsite.jpeg";      
+    };
+
+    console.log("lin79"+locationCol+"imgSrc" + imgSrc);
+
       newListing.html(
         `<div class="card" style="width: 18rem; padding:0px">
             <img class="card-img-top"
-              src="https://www.familyhandyman.com/wp-content/uploads/2018/02/handcrafted-log-home.jpg"
+              src=${imgSrc}
               alt="Card image cap">
             <div class="card-body">
               <p class="card-text">${memberListings[i].property_name}</p>
@@ -76,7 +103,7 @@ $(document).ready(() => {
 
   //function to retrieve reservations by member
   function getMemberReservations(){
-    $.get("/api/posts/:id", function(data){
+    $.get("/api/posts", function(data){
       console.log("member reservations", data);
       memberReservations = data;
       if(!memberReservations || !memberReservations.length){
@@ -85,22 +112,49 @@ $(document).ready(() => {
         for(j=0; j<memberReservations.length; j++){
           //Display member's reservations
         createResCard();
-        }
-      }
+        };
+      };
     });
   };
 
   //function to create reservation card
   function createResCard(){
+
     var newRes = $("<div>");
-      newRes.addClass("col");
+    newRes.addClass("col");
+
+    var locationCol = memberReservations[j].location;
+    var imgSrc;
+    console.log(locationCol);
+
+    switch(locationCol){
+      case "RV":
+          imgSrc = "../images/AdobeStock_rv.jpeg";
+          break;
+      case "Campsites":
+          imgSrc = "../images/AdobeStock_default.jpeg";
+          break;
+      case "Farmland":
+          imgSrc = "../images/AdobeStock_farmland.jpeg";
+          break;
+      case "Waterfront":
+          imgSrc = "../images/AdobeStock_waterfront.jpeg";
+          break;
+      case "Backyard":
+          imgSrc = "../images/AdobeStock_backyard.jpeg";
+          break;
+      default:
+          imgSrc = "../images/AdobeStock_campsite.jpeg";      
+  };
+
+  console.log("lin149"+locationCol+"imgSrc" + imgSrc);
+
       newRes.html(
         `<div class="card" style="width: 18rem; padding:0px">
             <img class="card-img-top"
-              src="https://www.familyhandyman.com/wp-content/uploads/2018/02/handcrafted-log-home.jpg"
-              alt="Card image cap">
+              src=${imgSrc}>
             <div class="card-body">
-              <p class="card-text">${memberReservations[i].property_name}</p>
+              <p class="card-text">${memberReservations[j].property_name}</p>
               <button type="button" class="btn btn-outline-success delete">Delete Rental</button>
             </div>
           </div>`

@@ -54,7 +54,7 @@ module.exports = function (app) {
         email: req.user.email,
         id: req.user.id
       });
-      console.log(req.body);
+      //console.log(req.body);
     }
   });
   ///////////////// ABOVE = user auth/login/signup ------ BELOW = routes for post, viewing, and updating listings
@@ -116,10 +116,10 @@ module.exports = function (app) {
 
   // Route to get one listing based on id:
   app.get("/api/posts/:id", (req, res) => {
-    db.Poster.findOne({ where: { id: req.params.id } }).then((list) => {
+    db.Poster.findAll({ where: { id: req.params.id } }).then((list) => {
       res.json(list);
     });
-    console.log("api-routes, list" + list);
+    console.log("api-routes, list: " + list);
   })
 
   // Route to update for when a listing is reserved:
