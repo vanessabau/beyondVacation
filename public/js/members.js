@@ -5,3 +5,26 @@ $(document).ready(() => {
     $(".member-name").text(data.email);
   });
 });
+
+
+function deleteList() {
+
+  console.log("test")
+  const dataId = $(this).attr("data-id");
+
+  console.log(dataId);
+  const dataObject = {};
+
+  dataObject.id = dataId
+
+  $.ajax({
+    url: '/api/posts',
+    type: 'DELETE',
+    data: dataObject,
+
+  }).then(function () {
+    console.log("success");
+  })
+  //put content here, for now console.log
+  console.log("Rental Reserved");
+};
