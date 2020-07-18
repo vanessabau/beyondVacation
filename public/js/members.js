@@ -101,7 +101,7 @@ $(document).ready(() => {
               alt="Card image cap">
             <div class="card-body">
               <p class="card-text">${memberReservations[i].property_name}</p>
-              <button type="button" class="btn btn-outline-success delete">Delete Rental</button>
+              <button type="button" data-id-one='${memberReservations[i].id}' class="btn btn-outline-success delete">Delete Rental</button>
             </div>
           </div>`
     );
@@ -115,17 +115,11 @@ $(document).ready(() => {
 function deleteList() {
 
   console.log("test")
-  const dataId = $(this).attr("data-id");
-
-  console.log(dataId);
-  const dataObject = {};
-
-  dataObject.id = dataId
+  const id = $(this).attr("data-id-one");
 
   $.ajax({
-    url: '/api/posts',
+    url: '/api/posts/' + id,
     type: 'DELETE',
-    data: dataObject,
 
   }).then(function () {
     console.log("success");

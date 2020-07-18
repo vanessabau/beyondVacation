@@ -75,14 +75,23 @@ module.exports = function (app) {
   });
 
   // Route to get fully filtered listings
-  app.get("/api/posts/filtered", (req, res) => {
+  //this is for the filter, REMEMBER THIS DID ALL 24 SCENARIOS and ONLY 4 edits
+  app.post("/api/posts/filtered", (req, res) => {
+    console.log("req.body", req.body)
+    if (!req.body.location) {
+      delete req.body.location
+    }
+    if (!req.body.price) {
+      delete req.body.price
+    }
+    if (!req.body.size_of_party) {
+      delete req.body.size_of_party
+    }
+    if (!req.body.facility) {
+      delete req.body.facility
+    }
     db.Poster.findAll({
-      where: {
-        location: req.body.location,
-        price: req.body.price,
-        size_of_party: req.body.size_of_party,
-        facility: req.body.facility
-      }
+      where: req.body
     }).then((list) => {
       res.json(list);
     })

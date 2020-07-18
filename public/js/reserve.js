@@ -1,5 +1,54 @@
 $(document).ready(() => {
 
+
+    var reserveForm = $("#reserve-button");
+    var rentalReserve = $("#list-selections");
+    var priceReserve = $("#inputPrice");
+    var partyReserve = $("#inputPartySize");
+    var facilityReserve = $("#facility");
+
+    // When the form is submitted, we validate there's an name and location entered
+    reserveForm.on("click", function (event) {
+        event.preventDefault();
+        var userData = {
+            rental: rentalReserve.val(),
+            price: priceReserve.val(),
+            party: partyReserve.val(),
+            facility: facilityReserve.val()
+        };
+
+        // If we have an name and location we run the loginUser function and clear the form
+        listUser(userData.rental, userData.price, userData.party, userData.facility);
+        rentalReserve.val("");
+        priceReserve.val("");
+        partyReserve.val("");
+        facilityReserve.val("");
+    });
+
+    function listUser(rental, price, party, facility) { // called on right side 
+        console.log("test")
+        $.post("/api/posts/filtered", { // left side is based on sequelize
+            location: rental,
+            price: price,
+            size_of_party: party,
+            facility: facility
+        })
+            .then(function (results) {
+                browseDiv.empty()
+                console.log("headache")
+                for (i = 0; i < results.length; i++) {
+                    displayRental(results[i]);
+                } //later for whichever html
+                // If there's an error, log the error
+            })
+        // .catch(function (err) {
+        //     console.log(err);
+        // });
+    }
+
+
+
+
     //browseDiv to hold all rental cards
     var browseDiv = $("#browse-rentals");
 
@@ -19,7 +68,7 @@ $(document).ready(() => {
             displayNoRentals();
         } else {
             for (i = 0; i < rentalData.length; i++) {
-                displayRental();
+                displayRental(rentalData[i]);
             }
         }
 
@@ -58,11 +107,11 @@ $(document).ready(() => {
     };
 
     //Function to display rentals
-    function displayRental() {
+    function displayRental(rentalData) {
         var rentalCard = $("<div>");
         rentalCard.addClass("col");
 
-        var locationCol = rentalData[i].location;
+        var locationCol = rentalData.location;
         var imgSrc;
 
 
@@ -94,24 +143,24 @@ $(document).ready(() => {
             `<div class="card" style="width: 18rem;">
                 <img class="card-img-top" src=${imgSrc} alt="Card image cap">
                 <div class="card-body">
-                    <h5>${rentalData[i].property_name}</h5>
+                    <h5>${rentalData.property_name}</h5>
                 </div>
                 <ul class="list-group list-group-flush">
-                  <li class="list-group-item"><h6>Property type: ${rentalData[i].location}</h6>
+                  <li class="list-group-item"><h6>Property type: ${rentalData.location}</h6>
                   </li>
                   <li class="list-group-item"><h6>Address:</h6>
-                  <p>${rentalData[i].address}, ${rentalData[i].city}, ${rentalData[i].state}</p></li>
-                  <li class="list-group-item"><h6>$${rentalData[i].price}/ Per day</h6>
+                  <p>${rentalData.address}, ${rentalData.city}, ${rentalData.state}</p></li>
+                  <li class="list-group-item"><h6>$${rentalData.price}/ Per day</h6>
                   </li>
-                  <li class="list-group-item"><h6>Maximum ${rentalData[i].size_of_party} people per day</h6>
+                  <li class="list-group-item"><h6>Maximum ${rentalData.size_of_party} people per day</h6>
                   </li>
-                  <li class="list-group-item"><h6>Bathrooms available: ${rentalData[i].facility}</h6>
+                  <li class="list-group-item"><h6>Bathrooms available: ${rentalData.facility}</h6>
                   </li>
-                  <li class="list-group-item"><h6>Currently reserved: ${rentalData[i].reserved}</h6>
+                  <li class="list-group-item"><h6>Currently reserved: ${rentalData.reserved}</h6>
                   </li>
                 </ul>
                 <div class="card-body">
-                <button type="button" data-id='${rentalData[i].id}' class="btn btn-outline-success reserve">Reserve this location</button>
+                <button type="button" data-id='${rentalData.id}' class="btn btn-outline-success reserve">Reserve this location</button>
                 </div>
               </div>`
         )
