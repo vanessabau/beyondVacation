@@ -14,21 +14,21 @@ $(document).ready(() => {
         console.log("rentals", data);
         rentalData = data;
         console.log("listingData:", rentalData);
-        if(!rentalData || !rentalData.length){
+
+        if (!rentalData || !rentalData.length) {
             displayNoRentals();
-        }else{
-        for (i=0; i<rentalData.length; i++){
-            displayRental();
+        } else {
+            for (i = 0; i < rentalData.length; i++) {
+                displayRental();
+            }
         }
-    }
+
     });
 
     //Reserve rental function updates status in database to "reserved" when button is clicked
     function reserveRental() {
         //put content here, for now console.log
         console.log("Rental Reserved");
-
-        //updates status of location to reserved and updates reserved-by to member id who reserves it
     };
 
     // This function displays a message when there are no rentals
