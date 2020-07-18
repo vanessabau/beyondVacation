@@ -3,11 +3,17 @@ const isAuthenticated = require("../config/middleware/isAuthenticated");
 const db = require("../models");
 //Routes
 //===============================================================================
-module.exports = function(app) {
+module.exports = function (app) {
+    //database call
     app.get("/", (req, res) => {
-        res.render("index", {
-            js: "index.js"
-        });
+        //tells us we are using the view engine - index view
+        db.Poster.findAll().then((data) => {
+            //console.log(data);
+            res.render("index", {
+                quote: data
+            });
+        }
+        );
     });
     //checks to see if user is logged in, if they aren't isAuthenticated middleware redirects them to login page
     //if user is logged in the list page renders
@@ -18,9 +24,9 @@ module.exports = function(app) {
     });
 
     app.get("/browse", isAuthenticated, (req, res) => {
-       res.render("reserve", {
-           js: "reserve.js"
-       });
+        res.render("reserve", {
+            js: "reserve.js"
+        });
     });
 
     app.get("/login", (req, res) => {

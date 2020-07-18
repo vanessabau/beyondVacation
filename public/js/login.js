@@ -1,16 +1,18 @@
 $(document).ready(() => {
   // Getting references to our form and inputs
-  const loginForm = $("form.login");
-  const emailInput = $("input#email-input");
-  const passwordInput = $("input#password-input");
+  const loginForm = $("form#login"); //checked
+  const emailInput = $("input#email-input"); //checked
+  const passwordInput = $("input#password-input"); //checked
 
   // When the form is submitted, we validate there's an email and password entered
   loginForm.on("submit", event => {
+    console.log("click");
     event.preventDefault();
     const userData = {
       email: emailInput.val().trim(),
       password: passwordInput.val().trim()
     };
+    console.log(userData);
 
     if (!userData.email || !userData.password) {
       return;
@@ -30,10 +32,9 @@ $(document).ready(() => {
     })
       .then(() => {
         window.location.replace("/members");
-        // If there's an error, log the error
       })
-      .catch(err => {
-        console.log(err);
-      });
+      // .catch(err => {
+      //   console.log(err);
+      // });
   }
 });

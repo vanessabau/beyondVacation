@@ -1,38 +1,101 @@
-<h1>Cats!</h1>
+   <nav class="navbar navbar-expand-md navbar-light bg-light">
+    <a class="navbar-brand" href="/" style="color:#FF6666; font-size:27px">BEYOND<p style="color: #339966; font-size:22px">VACATION</p</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+      aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav" >
+        <a class="nav-item nav-link active" href="/">HOME <span class="sr-only">(current)</span></a>
+        <a class="nav-item nav-link" href="/members"style="color:#666666">MEMBERS</a>
+        <a class="nav-item nav-link" href="/browse"style="color:#666666">BROWSE RENTALS</a>
+        <a class="nav-item nav-link" href="/list" style="color:#666666">LIST RENTAL</a>
+        <a class="nav-item nav-link" href="/signup" style="color:#666666">SIGNUP</a>
+        <a class="nav-item nav-link" href="/login" style="color:#666666">LOGIN</a>
+        <a class="nav-item nav-link" href="/logout" style="color:#666666">LOG OUT</a>
+      </div>
+    </div>
+  </nav>
 
-<h2>Cats that are not sleepy!</h2>
-
-<ul>
-  {{#each cats}}
-    {{#unless sleepy}}
-      {{> cats/cat-block sleep=true}}
-    {{/unless}}
-  {{/each}}
-</ul>
-
-<h2>Cats that are sleepy!</h2>
-
-<ul>
-  {{#each cats}}
-    {{#if sleepy}}
-      {{> cats/cat-block sleep=false}}
-    {{/if}}
-  {{/each}}
-</ul>
-
-<h2>Add a Cat</h2>
-<form class="create-form">
-
-  <div class="form-group">
-    <label for="ca">Cat Name:</label>
-    <input type="text" id="ca" name="name">
+  <div class="jumbotron jumbotron-fluid" id="jumbo-home" >
+    <div class="container">
+      <h1 class="display-4" style="visibility: hidden">AMAZING IMAGE HERE</h1>
+    </div>
   </div>
 
-  <div class="form-group">
-    <label for="sleepy">Sleepy?</label><br>
-    <input type="radio" name="sleepy" value="1" checked> Sleepy!<br>
-    <input type="radio" name="sleepy" value="0"> Awake
+  <div class="row" id="inspire-quote">
+    <div class="col highlight" style="text-align: center;">
+      <div class="col-sm-6" style="margin: auto">
+      <p id="inspire">"Going to the mountains is like going home."</p>
+      -John Muir
+      </div>
+      {{!-- <h5>For each loop that grabs the property_names from the Posters database
+        {{#each quote}}
+          {{dataValues.property_name}}
+        {{/each}}
+      <h5> --}}
+    </div>
+  </div>
+  
+  <div class="container">
+    <div class="row" style="padding-top: 30px; padding-bottom: 30px;">
+
+      <a href="/browse">
+      <div class="col-sm-6">
+        <div class="card" id="browse-image">
+          <div class="card-body" >
+            <a href="/browse" class="card-title">Browse Rentals</a>
+          </div>
+        </div>
+      </div>
+      </a>
+
+      <div class="col-sm-6">
+        <div class="card" id="list-image">
+          <div class="card-body">
+            <a href="/list" class="card-title">List Rental</a>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 
-  <button type="submit">Add Cat</button>
-</form>
+  <div class="row">
+    <div class="col highlight2" style="text-align: center;">
+      <div class="col-sm-6" style="margin: auto">
+      <p>In the era of social distancing we have embraced creative ways to enjoy vacationing with our closest loved ones. By allowing members to share access to out-door hidden gems, we facilitate adventure and wonder that takes the experience Beyond Vacation.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="container">
+    <div class="row" style="padding-top: 30px; padding-bottom: 30px;">
+
+      <div class="col-sm-6">
+        <div class="card">
+          <div class="card-body" >
+            <a href="/browse" class="card-title">Social Media Links</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-sm-6">
+        <div class="card">
+          <div class="card-body">
+            <a href="/list" class="card-title">Contact Us</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+    </div>
+  </div>
+
+
+
+<div class="spaceholder" style="height: 100px;"></div>
+  <div id="footer" style="text-align: center;">
+    &#169 Beyond Vacation 2020
+  </div>

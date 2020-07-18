@@ -47,6 +47,7 @@ $(document).ready(() => {
         //put content here, for now console.log
         console.log("Rental Reserved");
     };
+
     // This function displays a message when there are no rentals
     function displayNoRentals() {
         browseDiv.empty();
@@ -114,6 +115,11 @@ $(document).ready(() => {
                 </div>
               </div>`
         )
+
+        // $(".card-img-top").attr("src", imgSrc)
+        browseDiv.append(rentalCard);
+
+        <button type="button" class="btn btn-outline-success reserve">Reserve this location</button>
 
         // $(".card-img-top").attr("src", imgSrc)
         browseDiv.append(rentalCard);
