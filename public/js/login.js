@@ -29,12 +29,11 @@ $(document).ready(() => {
     $.post("/api/login", {
       email: email,
       password: password
-    })
-      .then(() => {
-        window.location.replace("/members");
-      })
-      // .catch(err => {
-      //   console.log(err);
-      // });
+    }).then(() => {
+      window.location.replace("/members");
+    });
+    // .catch(err => {
+    //   console.log(err);
+    // });
   }
 });

@@ -18,14 +18,22 @@ $(document).ready(() => {
     };
 
     //If there are empty field return
-    if (!userData.firstName || !userData.lastName || !userData.email || !userData.password) {
+    if (
+      !userData.firstName ||
+      !userData.lastName ||
+      !userData.email ||
+      !userData.password
+    ) {
       return;
     }
     // If we have an email and password, run the signUpUser function
-    signUpUser(userData.firstName, userData.lastName, userData.email, userData.password);
-    firstName.val(""),
-    lastName.val(""),
-    emailInput.val("");
+    signUpUser(
+      userData.firstName,
+      userData.lastName,
+      userData.email,
+      userData.password
+    );
+    firstName.val(""), lastName.val(""), emailInput.val("");
     passwordInput.val("");
   });
 
