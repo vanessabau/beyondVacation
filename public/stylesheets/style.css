@@ -17,6 +17,11 @@
   min-height: 250px;
 }
 
+#inspire{
+  font-size: x-large;
+  font-style: italic;
+}
+
 #browse-image{
   background-image: url(../images/AdobeStock_297569922.jpeg);
   background-position: center center;
@@ -29,7 +34,6 @@
   align-items: center;
   font-size: x-large;
 }
-
 
 #list-image{
   background-image: url(../images/AdobeStock_317029051.jpeg);
@@ -47,6 +51,16 @@
 .card-title {
   color: white;
   text-shadow: 2px 2px 4px #000000;
+}
+
+#aboutUs{
+  display: flex;
+  justify-content: center;
+}
+
+.info-box{
+  display: flex;
+  justify-content: center;
 }
 .info-card {
   color:#666666;
@@ -90,14 +104,34 @@
   color: white;
 }
 
+/* Phone */
+.fa-phone {
+  background: #3B5998;
+  color: white;
+}
+
+/* Address */
+.fa-map-marker {
+  background: #55ACEE;
+  color: white;
+}
+
+/* envelope */
+.fa-envelope {
+  background: #FF6666;
+  color: white;
+}
+
 
 .highlight{
   background-color: #339966;
+  opacity: 0.8;
   padding: 15px;
   color: white;
 }
 .highlight2{
   background-color: #006699;
+  opacity: 0.8;
   padding: 15px;
   color: white;
 }

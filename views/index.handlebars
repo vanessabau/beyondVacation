@@ -27,7 +27,7 @@
     <div class="col highlight" style="text-align: center;">
       <div class="col-sm-6" style="margin: auto">
       <p id="inspire">"Going to the mountains is like going home."</p>
-      -John Muir
+      <p id="author">-John Muir</p>
       </div>
       {{!-- To target items via handlebars: <h5>For each loop that grabs the property_names from the Posters database
         {{#each quote}}
@@ -63,7 +63,7 @@
   <div class="row">
     <div class="col highlight2" style="text-align: center;">
       <div class="col-sm-6" style="margin: auto">
-      <p>In the era of social distancing we have embraced creative ways to enjoy vacationing with our closest loved ones. By allowing members to share access to out-door hidden gems, we facilitate adventure and wonder that takes the experience Beyond Vacation.</p>
+      <p id="aboutUs">In the era of social distancing we have embraced creative ways to enjoy vacationing with our closest kin. By allowing members to share access to out-door hidden gems, we facilitate adventure and wonder that takes each experience far Beyond Vacation.</p>
       </div>
     </div>
   </div>
@@ -77,18 +77,19 @@
         <div class="card">
           <div class="card-body" >
             <div class="info-card">Social Media Links</div>
-            
+
             <div class="row">
-              <div class="col-4">
-                <a href="#" class="fa fa-facebook"></a>
+
+              <div class="col-4 info-box">
+                <a href="https://www.facebook.com/" class="fa fa-facebook"></a>
               </div>
               
-              <div class="col-4">
-                <a href="#" class="fa fa-instagram"></a>
+              <div class="col-4 info-box">
+                <a href="https://www.instagram.com/" class="fa fa-instagram"></a>
               </div>
 
-              <div class="col-4">
-                <a href="#" class="fa fa-twitter"></a>
+              <div class="col-4 info-box">
+                <a href="https://twitter.com/" class="fa fa-twitter"></a>
               </div>
               
             </div>
@@ -100,18 +101,34 @@
         <div class="card">
           <div class="card-body">
             <div class="info-card">Contact Us</div>
+
             <div class="row">
 
-              <div class="col-md-4">
-                <a href="#" class="fa fa-envelope"></a> <span>Phone</span> 
+              <div class="col-4 info-box">
+                <span class="fa fa-phone"></span>
               </div>
-               <div class="col-md-4">
-                <a href="#" class="fa fa-envelope"></a> <span>Address</span> 
+              
+               <div class="col-4 info-box">
+                <span class="fa fa-map-marker"></span> 
               </div>
-               <div class="col-md-4">
-                <a href="#" class="fa fa-envelope"></a> <span>Email</span> 
+              
+               <div class="col-4 info-box">
+                <span class="fa fa-envelope"></span>
               </div>
+            </div>
 
+            <div class="row" style="margin-top:15px">
+            
+              <div class="col-md-4 info-box" >
+                <p style="font-size: 10px">(123) 456-7891</p> 
+              </div>
+              <div class="col-md-4 info-box" >
+                <p style="font-size: 10px; text-align:center">1234 Main Street, City, State, 12345</p>
+              </div>
+              <div class="col-md-4 info-box" >
+                <p style="font-size: 10px">hello@beyondvacation.com</p> 
+              </div>
+            
             </div>
           </div>
         </div>
