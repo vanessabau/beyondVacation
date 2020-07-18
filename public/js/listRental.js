@@ -11,18 +11,9 @@ $(document).ready(function () {
     var partyInput = $("select#inputPartySize"); //checked
     var facilityInput = $("select#facility");
 
-    function getUserInfo() {
-        $.get("/api/user_data").then((data) => {
-            console.log(data.id);
-            return parseInt(data.id);
-        });
-    };
-
     // When the form is submitted, we validate there's an name and location entered
     listForm.on("submit", function (event) {
         event.preventDefault();
-
-        let userID = getUserInfo();
 
         var userData = { // <userdata is fine
             property: propertyInput.val().trim(),
@@ -33,18 +24,17 @@ $(document).ready(function () {
             zip: zipInput.val().trim(),
             price: priceInput.val(),
             party: partyInput.val().trim(),
-            facility: facilityInput.val().trim(),
-            UserId: userID
+            facility: facilityInput.val().trim()
         };
 
         console.log(userData);
 
-        if (!userData.property || !userData.rental || !userData.address || !userData.city || !userData.state || !userData.zip || !userData.price || !userData.party || !userData.facility || !userData.UserId) {
+        if (!userData.property || !userData.rental || !userData.address || !userData.city || !userData.state || !userData.zip || !userData.price || !userData.party || !userData.facility) {
             return;
         }
 
         // If we have an name and location we run the loginUser function and clear the form
-        listUser(userData.property, userData.rental, userData.address, userData.city, userData.state, userData.zip, userData.price, userData.party, userData.facility, userData.UserId);
+        listUser(userData.property, userData.rental, userData.address, userData.city, userData.state, userData.zip, userData.price, userData.party, userData.facility);
         propertyInput.val("");
         rentalInput.val("");
         addressInput.val("");
@@ -72,27 +62,31 @@ $(document).ready(function () {
     //post
     //ajax req then parse res
     // loginUser does a post to our "api/login" route and if successful, redirects us the the members page
-    function listUser(property, rental, address, city, state, zip, price, party, facility, userID) { // called on right side 
-        $.post("/api/posts", { // left side is based on sequelize
-            property_name: property,
-            location: rental,
-            address: address,
-            city: city,
-            state: state,
-            zip: zip,
-            price: price,
-            size_of_party: party,
-            facility: facility,
-            UserId: userID
-        })
-            .then(function () {
-                window.location.replace("/list"); //later for whichever html
-                // If there's an error, log the error
+    function listUser(property, rental, address, city, state, zip, price, party, facility) { // called on right side 
+        $.get("/api/user_data").then((data) => {
+
+            $.post("/api/posts", { // left side is based on sequelize
+                property_name: property,
+                location: rental,
+                address: address,
+                city: city,
+                state: state,
+                zip: zip,
+                price: price,
+                size_of_party: party,
+                facility: facility,
+                UserId: data.id
             })
-            .catch(function (err) {
-                console.log(err);
-            });
-    }
+                .then(function () {
+                    window.location.replace("/list"); //later for whichever html
+                    // If there's an error, log the error
+                })
+                .catch(function (err) {
+                    console.log(err);
+                });
+        });
+
+    };
 
 });
 
