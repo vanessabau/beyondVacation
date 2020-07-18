@@ -112,25 +112,29 @@ $(document).ready(() => {
 });
 
 
-function deleteList() {
 
-  console.log("test")
-  const dataId = $(this).attr("data-id");
-
-  console.log(dataId);
-  const dataObject = {};
-
-  dataObject.id = dataId
-
+//can we switch document with delete-reserve?
+//$(document).on("click", "button.delete", deleteList);
+function deleteList(event) {
+  event.stopPropagation();
+  var id = $(this).data("id");
   $.ajax({
-    url: '/api/posts',
-    type: 'DELETE',
-    data: dataObject,
-
-  }).then(function () {
-    console.log("success");
-  })
-  //put content here, for now console.log
-  console.log("Rental Reserved");
+    method: "DELETE",
+    url: "/api/posts/" + id
+  }).then(listUser);
 };
 
+$(".delete-reserve").on("click", function listUser() { //delete list
+  var id = $(this).data("id");
+
+  // Send the DELETE request.
+  $.ajax("/api/posts/" + id, {
+      type: "DELETE"
+  }).then(
+      function () {
+          console.log("deleted posts", id);
+          // Reload the page to get the updated list
+          location.reload();
+      }
+  );
+});
