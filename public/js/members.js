@@ -17,9 +17,9 @@ $(document).ready(() => {
     $("#email").text(data.email); 
     $("#first-name").text((data.firstName).toUpperCase());
     $("#last-name").text((data.lastName).toUpperCase());
+    $("#id").text(data.id);
     getMemberListings();
     getMemberReservations();
-
   });
 
   // This function displays a message when there are no member listings

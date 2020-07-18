@@ -50,19 +50,19 @@ $(document).ready(() => {
 
 
             switch(locationCol){
-                case "rv":
+                case "RV":
                     imgSrc = "../images/AdobeStock_rv.jpeg";
                     break;
-                case "campsites":
+                case "Campsites":
                     imgSrc = "../images/AdobeStock_default.jpeg";
                     break;
-                case "farmLand":
+                case "Farmland":
                     imgSrc = "../images/AdobeStock_farmland.jpeg";
                     break;
-                case "waterFront":
+                case "Waterfront":
                     imgSrc = "../images/AdobeStock_waterfront.jpeg";
                     break;
-                case "backyard":
+                case "Backyard":
                     imgSrc = "../images/AdobeStock_backyard.jpeg";
                     break;
                 default:
