@@ -50,7 +50,7 @@ module.exports = function(sequelize, DataTypes) {
             defaultValue: false
         },
         reservedBy: {
-            type: DataTypes.STRING,
+            type: DataTypes.INTEGER,
             allowNull: true
         }
     });
