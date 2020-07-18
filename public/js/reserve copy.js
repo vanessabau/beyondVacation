@@ -96,6 +96,7 @@ $(document).ready(() => {
             )
 
         // $(".card-img-top").attr("src", imgSrc)
-        browseDiv.append(rentalCard);  
+        browseDiv.append(rentalCard);
+        
     };
 });
