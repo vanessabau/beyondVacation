@@ -119,7 +119,7 @@ $(document).ready(() => {
         // $(".card-img-top").attr("src", imgSrc)
         browseDiv.append(rentalCard);
 
-        <button type="button" class="btn btn-outline-success reserve">Reserve this location</button>
+        // <button type="button" class="btn btn-outline-success reserve">Reserve this location</button>
 
         // $(".card-img-top").attr("src", imgSrc)
         browseDiv.append(rentalCard);

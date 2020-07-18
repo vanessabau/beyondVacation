@@ -126,7 +126,7 @@ module.exports = function (app) {
 
   // Route to update for when a listing is reserved:
   app.put("/api/posts", (req, res) => {
-    db.Poster.update(req.body, { where: { id: req.body.id } }).then((list) => {
+    db.Poster.update({ reserved: true }, { where: { id: req.body.id } }).then((list) => {
       res.json(list);
     })
   })

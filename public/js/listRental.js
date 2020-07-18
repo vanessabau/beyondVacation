@@ -81,9 +81,9 @@ $(document).ready(function () {
                     window.location.replace("/list"); //later for whichever html
                     // If there's an error, log the error
                 })
-                .catch(function (err) {
-                    console.log(err);
-                });
+            // .catch(function (err) {
+            //     console.log(err);
+            // });
         });
 
     };
