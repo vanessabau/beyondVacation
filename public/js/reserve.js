@@ -50,25 +50,25 @@ $(document).ready(() => {
     const locationCol = rentalData[i].location;
     let imgSrc;
 
-        switch(locationCol){
-            case "RV":
-                imgSrc = "../images/AdobeStock_rv.jpeg";
-                break;
-            case "Campsites":
-                imgSrc = "../images/AdobeStock_default.jpeg";
-                break;
-            case "Farmland":
-                imgSrc = "../images/AdobeStock_farmland.jpeg";
-                break;
-            case "Waterfront":
-                imgSrc = "../images/AdobeStock_waterfront.jpeg";
-                break;
-            case "Backyard":
-                imgSrc = "../images/AdobeStock_backyard.jpeg";
-                break;
-            default:
-                imgSrc = "../images/AdobeStock_campsite.jpeg";      
-        };
+    switch(locationCol){
+    case "RV":
+      imgSrc = "../images/AdobeStock_rv.jpeg";
+      break;
+    case "Campsites":
+      imgSrc = "../images/AdobeStock_default.jpeg";
+      break;
+    case "Farmland":
+      imgSrc = "../images/AdobeStock_farmland.jpeg";
+      break;
+    case "Waterfront":
+      imgSrc = "../images/AdobeStock_waterfront.jpeg";
+      break;
+    case "Backyard":
+      imgSrc = "../images/AdobeStock_backyard.jpeg";
+      break;
+    default:
+      imgSrc = "../images/AdobeStock_campsite.jpeg";      
+    }
 
     rentalCard.html(
       `<div class="card" style="width: 18rem;">
@@ -96,14 +96,7 @@ $(document).ready(() => {
               </div>`
     );
 
-<<<<<<< HEAD
-        // $(".card-img-top").attr("src", imgSrc)
-        browseDiv.append(rentalCard);  
-    };
-});
-=======
     // $(".card-img-top").attr("src", imgSrc)
     browseDiv.append(rentalCard);
   }
 });
->>>>>>> 359cfbd4d64b25bae2e02d3e0df18128d227bbca
