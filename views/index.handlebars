@@ -29,7 +29,7 @@
       <p id="inspire">"Going to the mountains is like going home."</p>
       -John Muir
       </div>
-      {{!-- <h5>For each loop that grabs the property_names from the Posters database
+      {{!-- To target items via handlebars: <h5>For each loop that grabs the property_names from the Posters database
         {{#each quote}}
           {{dataValues.property_name}}
         {{/each}}
@@ -40,18 +40,18 @@
   <div class="container">
     <div class="row" style="padding-top: 30px; padding-bottom: 30px;">
 
-      <a href="/browse">
+      
       <div class="col-sm-6">
-        <div class="card" id="browse-image">
+        <div class="card" id="browse-image" onclick="location.href='/browse';" style="cursor:pointer">
           <div class="card-body" >
             <a href="/browse" class="card-title">Browse Rentals</a>
           </div>
         </div>
       </div>
-      </a>
+      
 
       <div class="col-sm-6">
-        <div class="card" id="list-image">
+        <div class="card" id="list-image" onclick="location.href='/list';" style="cursor:pointer">
           <div class="card-body">
             <a href="/list" class="card-title">List Rental</a>
           </div>
@@ -76,7 +76,22 @@
       <div class="col-sm-6">
         <div class="card">
           <div class="card-body" >
-            <a href="/browse" class="card-title">Social Media Links</a>
+            <div class="info-card">Social Media Links</div>
+            
+            <div class="row">
+              <div class="col-4">
+                <a href="#" class="fa fa-facebook"></a>
+              </div>
+              
+              <div class="col-4">
+                <a href="#" class="fa fa-instagram"></a>
+              </div>
+
+              <div class="col-4">
+                <a href="#" class="fa fa-twitter"></a>
+              </div>
+              
+            </div>
           </div>
         </div>
       </div>
@@ -84,7 +99,20 @@
       <div class="col-sm-6">
         <div class="card">
           <div class="card-body">
-            <a href="/list" class="card-title">Contact Us</a>
+            <div class="info-card">Contact Us</div>
+            <div class="row">
+
+              <div class="col-md-4">
+                <a href="#" class="fa fa-envelope"></a> <span>Phone</span> 
+              </div>
+               <div class="col-md-4">
+                <a href="#" class="fa fa-envelope"></a> <span>Address</span> 
+              </div>
+               <div class="col-md-4">
+                <a href="#" class="fa fa-envelope"></a> <span>Email</span> 
+              </div>
+
+            </div>
           </div>
         </div>
       </div>
