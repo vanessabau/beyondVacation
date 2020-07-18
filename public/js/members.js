@@ -18,6 +18,7 @@ $(document).ready(() => {
     $("#first-name").text((data.firstName).toUpperCase());
     $("#last-name").text((data.lastName).toUpperCase());
     $("#id").text(data.id);
+    
     getMemberListings();
     getMemberReservations();
   });
@@ -31,9 +32,17 @@ $(document).ready(() => {
     membersListDiv.append(messageH5);
   };
 
+
+
+
   //function to retrieve listings by member
   function getMemberListings(){
-    $.get("/api/posts/:id", function(data){
+    $.get("/api/user_data").then((userData) =>{
+      console.log('userData: '+userData);
+      console.log("userData.id" +userData.id);
+    
+    $.get("/api/posts/members/"+userData.id, function(data){
+      
       console.log("member listings", data);
       memberListings = data;
       if(!memberListings || !memberListings.length){
@@ -45,7 +54,11 @@ $(document).ready(() => {
         }; 
       };
     });
+  })
   };
+
+
+/////////////////////////// Retrieve Member Reservations functions below /////////////////////////
 
   //function to create listing card
   function createListCard(){
@@ -76,8 +89,6 @@ $(document).ready(() => {
             imgSrc = "../images/AdobeStock_campsite.jpeg";      
     };
 
-    console.log("lin79"+locationCol+"imgSrc" + imgSrc);
-
       newListing.html(
         `<div class="card" style="width: 18rem; padding:0px">
             <img class="card-img-top"
@@ -103,7 +114,12 @@ $(document).ready(() => {
 
   //function to retrieve reservations by member
   function getMemberReservations(){
-    $.get("/api/posts", function(data){
+    $.get("/api/user_data").then((userData) =>{
+      console.log('userData: '+userData);
+      console.log("userData.id" +userData.id);
+
+    $.get("/api/posts/membersRes/"+userData.id, function(data){
+
       console.log("member reservations", data);
       memberReservations = data;
       if(!memberReservations || !memberReservations.length){
@@ -115,6 +131,7 @@ $(document).ready(() => {
         };
       };
     });
+    });
   };
 
   //function to create reservation card
@@ -125,7 +142,7 @@ $(document).ready(() => {
 
     var locationCol = memberReservations[j].location;
     var imgSrc;
-    console.log(locationCol);
+    
 
     switch(locationCol){
       case "RV":
@@ -147,7 +164,7 @@ $(document).ready(() => {
           imgSrc = "../images/AdobeStock_campsite.jpeg";      
   };
 
-  console.log("lin149"+locationCol+"imgSrc" + imgSrc);
+  
 
       newRes.html(
         `<div class="card" style="width: 18rem; padding:0px">
