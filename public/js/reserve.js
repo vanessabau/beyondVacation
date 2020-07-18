@@ -14,6 +14,7 @@ $(document).ready(() => {
         console.log("rentals", data);
         rentalData = data;
         console.log("listingData:", rentalData);
+
         if (!rentalData || !rentalData.length) {
             displayNoRentals();
         } else {
@@ -21,6 +22,7 @@ $(document).ready(() => {
                 displayRental();
             }
         }
+
     });
 
     //Reserve rental function updates status in database to "reserved" when button is clicked
@@ -39,37 +41,66 @@ $(document).ready(() => {
     };
 
     //Function to display rentals
-    function displayRental() {
+    function displayRental(){
         var rentalCard = $("<div>");
         rentalCard.addClass("col");
-        rentalCard.html(
-            `<div class="card" style="width: 18rem;">
-            <img class="card-img-top" src="https://www.familyhandyman.com/wp-content/uploads/2018/02/handcrafted-log-home.jpg" alt="Card image cap">
-            <div class="card-body">
 
-              <h5 class="card-title">${rentalData[i].property_name}</h5>
+        var locationCol = rentalData[i].location;
+        var imgSrc;
 
-            </div>
-            <ul class="list-group list-group-flush">
-              <li class="list-group-item"><h6>Property type: ${rentalData[i].location}</h6>
-              </li>
-              <li class="list-group-item"><h6>Address:</h6>
-              <p>${rentalData[i].address}, ${rentalData[i].city}, ${rentalData[i].state}</p></li>
-              <li class="list-group-item"><h6>$${rentalData[i].price}/ Per day</h6>
-              </li>
-              <li class="list-group-item"><h6>Maximum ${rentalData[i].size_of_party} people per day</h6>
-              </li>
-              <li class="list-group-item"><h6>Bathrooms available: ${rentalData[i].facility}</h6>
-              </li>
-              <li class="list-group-item"><h6>Currently reserved: ${rentalData[i].reserved}</h6>
-              </li>
-            </ul>
-            <div class="card-body">
-            <button type="button" class="btn btn-outline-success reserve">Reserve this location</button>
-            </div>
-          </div>`
-        );
+
+            switch(locationCol){
+                case "RV":
+                    imgSrc = "../images/AdobeStock_rv.jpeg";
+                    break;
+                case "Campsites":
+                    imgSrc = "../images/AdobeStock_default.jpeg";
+                    break;
+                case "Farmland":
+                    imgSrc = "../images/AdobeStock_farmland.jpeg";
+                    break;
+                case "Waterfront":
+                    imgSrc = "../images/AdobeStock_waterfront.jpeg";
+                    break;
+                case "Backyard":
+                    imgSrc = "../images/AdobeStock_backyard.jpeg";
+                    break;
+                default:
+                    imgSrc = "../images/AdobeStock_campsite.jpeg";      
+            };
+        
+
+        console.log("lin74"+locationCol+"imgSrc" + imgSrc);
+
+
+            rentalCard.html(
+                `<div class="card" style="width: 18rem;">
+                <img class="card-img-top" src=${imgSrc} alt="Card image cap">
+                <div class="card-body">
+                    <h5>${rentalData[i].property_name}</h5>
+                </div>
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item"><h6>Property type: ${rentalData[i].location}</h6>
+                  </li>
+                  <li class="list-group-item"><h6>Address:</h6>
+                  <p>${rentalData[i].address}, ${rentalData[i].city}, ${rentalData[i].state}</p></li>
+                  <li class="list-group-item"><h6>$${rentalData[i].price}/ Per day</h6>
+                  </li>
+                  <li class="list-group-item"><h6>Maximum ${rentalData[i].size_of_party} people per day</h6>
+                  </li>
+                  <li class="list-group-item"><h6>Bathrooms available: ${rentalData[i].facility}</h6>
+                  </li>
+                  <li class="list-group-item"><h6>Currently reserved: ${rentalData[i].reserved}</h6>
+                  </li>
+                </ul>
+                <div class="card-body">
+                <button type="button" class="btn btn-outline-success reserve">Reserve this location</button>
+                </div>
+              </div>`
+            )
+
+        // $(".card-img-top").attr("src", imgSrc)
         browseDiv.append(rentalCard);
+        
     };
-
 });
