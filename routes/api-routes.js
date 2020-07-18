@@ -74,6 +74,26 @@ module.exports = function (app) {
     });
   });
 
+  //Route to grab all listings by a member
+  app.get("/api/posts/members/:id", (req, res) => {    
+    db.Poster.findAll({
+      where: { UserId: req.params.id},
+      include: db.User
+    }).then((list) => {
+      res.json(list);
+    });
+  });
+
+  //Route to grab all listings by a member
+  app.get("/api/posts/membersRes/:id", (req, res) => {    
+    db.Poster.findAll({
+      where: { reservedBy: req.params.id},
+      include: db.User
+    }).then((list) => {
+      res.json(list);
+    });
+  });
+
   // Route to get fully filtered listings
   app.get("/api/posts/filtered", (req,res) => {
     db.Poster.findAll({where: {
@@ -115,12 +135,14 @@ module.exports = function (app) {
   })
 
   // Route to get one listing based on id:
-  app.get("/api/posts/:id", (req, res) => {
-    db.Poster.findAll({ where: { id: req.params.id } }).then((list) => {
-      res.json(list);
-    });
-    console.log("api-routes, list: " + list);
-  })
+  // app.get("/api/posts/:id", (req, res) => {
+  //   db.Poster.findAll(
+  //     { where: { UserId: req.params.id }, include: db.User
+  //    }).then((list) => {
+  //     res.json(list);
+  //   });
+  //   console.log("api-routes, list: " + list);
+  // })
 
   // Route to update for when a listing is reserved:
   app.put("/api/posts", (req, res) => {
