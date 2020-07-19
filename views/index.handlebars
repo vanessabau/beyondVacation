@@ -1,89 +1,84 @@
-   <nav class="navbar navbar-expand-md navbar-light bg-light">
-    <a class="navbar-brand" href="/" style="color:#FF6666; font-size:27px">BEYOND<p style="color: #339966; font-size:22px">VACATION</p</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
-      aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-      <div class="navbar-nav" >
-        <a class="nav-item nav-link active" href="/">HOME <span class="sr-only">(current)</span></a>
-        <a class="nav-item nav-link" href="/members"style="color:#666666">MEMBERS</a>
-        <a class="nav-item nav-link" href="/browse"style="color:#666666">BROWSE RENTALS</a>
-        <a class="nav-item nav-link" href="/list" style="color:#666666">LIST RENTAL</a>
-        <a class="nav-item nav-link" href="/signup" style="color:#666666">SIGNUP</a>
-        <a class="nav-item nav-link" href="/login" style="color:#666666">LOGIN</a>
-        <a class="nav-item nav-link" href="/logout" style="color:#666666">LOG OUT</a>
-      </div>
-    </div>
-  </nav>
-
-  <div class="jumbotron jumbotron-fluid" id="jumbo-home" >
-    <div class="container">
-      <h1 class="display-4" style="visibility: hidden">AMAZING IMAGE HERE</h1>
+<!--NAVBAR-->
+<nav class="navbar navbar-expand-md navbar-light bg-light">
+  <a class="navbar-brand" href="/" style="color:#FF6666; font-size:27px">
+  BEYOND<p style="color: #339966; font-size:22px">VACATION</p></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button> 
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav mr-auto">
+      <a class="nav-item nav-link active" href="/">HOME <span class="sr-only">(current)</span></a>
+      <a class="nav-item nav-link" href="/members" style="color:#666666">MEMBERS</a>
+      <a class="nav-item nav-link" href="/browse" style="color:#666666">BROWSE RENTALS</a>
+      <a class="nav-item nav-link" href="/list" style="color:#666666">LIST RENTAL</a>
+      <a class="nav-item nav-link" href="/signup" style="color:#666666">SIGNUP</a>
+      <a class="nav-item nav-link" href="/login" style="color:#666666">LOGIN</a>
+      <a class="nav-item nav-link" href="/logout" style="color:#666666">LOG OUT</a>
     </div>
   </div>
+</nav>
 
-  <div class="row" id="inspire-quote">
-    <div class="col highlight" style="text-align: center;">
-      <div class="col-sm-6" style="margin: auto">
+<!--JUMBOTRON-->
+<div class="jumbotron jumbotron-fluid" id="jumbo-home">
+  <div class="container">
+    <h1 class="display-4" style="visibility: hidden">AMAZING IMAGE HERE</h1>
+  </div>
+</div>
+
+<!--NATURE QUOTE BANNER-->
+<div class="row" id="inspire-quote">
+  <div class="col highlight" style="text-align: center;">
+    <div class="col-sm-6" style="margin: auto">
       <p id="inspire">"Going to the mountains is like going home."</p>
       <p id="author">-John Muir</p>
-      </div>
-      {{!-- To target items via handlebars: <h5>For each loop that grabs the property_names from the Posters database
-        {{#each quote}}
-          {{dataValues.property_name}}
-        {{/each}}
-      <h5> --}}
     </div>
   </div>
-  
-  <div class="container">
-    <div class="row" style="padding-top: 30px; padding-bottom: 30px;">
+</div>
 
-      
-      <div class="col-sm-6">
-        <div class="card" id="browse-image" onclick="location.href='/browse';" style="cursor:pointer">
-          <div class="card-body" >
-            <a href="/browse" class="card-title">Browse Rentals</a>
-          </div>
+<!--CONTAINER TO HOLD BROWSE AND LIST CARDS -->
+<div class="container">
+  <div class="row" style="padding-top: 30px; padding-bottom: 30px;">
+    <div class="col-sm-6">
+      <div class="card" id="browse-image" onclick="location.href='/browse';" style="cursor:pointer">
+        <div class="card-body">
+          <a href="/browse" class="card-title">Browse Rentals</a>
         </div>
       </div>
-      
-
-      <div class="col-sm-6">
-        <div class="card" id="list-image" onclick="location.href='/list';" style="cursor:pointer">
-          <div class="card-body">
-            <a href="/list" class="card-title">List Rental</a>
-          </div>
+    </div>
+    <div class="col-sm-6">
+      <div class="card" id="list-image" onclick="location.href='/list';" style="cursor:pointer">
+        <div class="card-body">
+          <a href="/list" class="card-title">List Rental</a>
         </div>
       </div>
     </div>
   </div>
+</div>
 
-  <div class="row">
-    <div class="col highlight2" style="text-align: center;">
-      <div class="col-sm-6" style="margin: auto">
-      <p id="aboutUs">In the era of social distancing we have embraced creative ways to enjoy vacationing with our closest kin. By allowing members to share access to out-door hidden gems, we facilitate adventure and wonder that takes each experience far Beyond Vacation.</p>
-      </div>
+<!--ABOUT US BANNER -->
+<div class="row">
+  <div class="col highlight2" style="text-align: center;">
+    <div class="col-sm-6" style="margin: auto">
+      <p id="aboutUs">In the era of social distancing we have embraced creative ways to enjoy vacationing with our
+        closest kin. By allowing members to share access to out-door hidden gems, we facilitate adventure and wonder
+        that takes each experience far Beyond Vacation.</p>
     </div>
   </div>
+</div>
 
-  <div class="container">
-    <div class="row">
-      <div class="container">
-    <div class="row" style="padding-top: 30px; padding-bottom: 30px;">
+<!--CONTAINER TO HOLD SOCIAL MEDIA AND CONTACT CARDS -->
+<div class="container">
+  <div class="row" style="padding-top: 30px; padding-bottom: 30px;">
 
-      <div class="col-sm-6">
-        <div class="card">
-          <div class="card-body" >
-            <div class="info-card">Social Media Links</div>
-
+    <div class="col-sm-6">
+      <!--SOCIAL MEDIA CARD -->
+      <div class="card" style="padding-bottom:60px">
+        <div class="card-body">
+          <div class="info-card">Social Media Links</div>
             <div class="row">
 
               <div class="col-4 info-box">
                 <a href="https://www.facebook.com/" class="fa fa-facebook"></a>
               </div>
-              
+
               <div class="col-4 info-box">
                 <a href="https://www.instagram.com/" class="fa fa-instagram"></a>
               </div>
@@ -91,56 +86,47 @@
               <div class="col-4 info-box">
                 <a href="https://twitter.com/" class="fa fa-twitter"></a>
               </div>
-              
+
             </div>
           </div>
         </div>
       </div>
-
-      <div class="col-sm-6">
-        <div class="card">
-          <div class="card-body">
-            <div class="info-card">Contact Us</div>
-
-            <div class="row">
-
-              <div class="col-4 info-box">
-                <span class="fa fa-phone"></span>
-              </div>
-              
-               <div class="col-4 info-box">
-                <span class="fa fa-map-marker"></span> 
-              </div>
-              
-               <div class="col-4 info-box">
-                <span class="fa fa-envelope"></span>
-              </div>
+    
+    <div class="col-sm-6">
+      <!-- CONTACT US CARD -->
+      <div class="card">
+        <div class="card-body">
+          <div class="info-card">Contact Us</div>
+          <div class="row">
+            <div class="col-4 info-box">
+              <span class="fa fa-phone"></span>
             </div>
-
-            <div class="row" style="margin-top:15px">
-            
-              <div class="col-md-4 info-box" >
-                <p style="font-size: 10px">(123) 456-7891</p> 
-              </div>
-              <div class="col-md-4 info-box" >
-                <p style="font-size: 10px; text-align:center">1234 Main Street, City, State, 12345</p>
-              </div>
-              <div class="col-md-4 info-box" >
-                <p style="font-size: 10px">hello@beyondvacation.com</p> 
-              </div>
-            
+            <div class="col-4 info-box">
+              <span class="fa fa-map-marker"></span>
+            </div>
+            <div class="col-4 info-box">
+              <span class="fa fa-envelope"></span>
+            </div>
+          </div>
+          <div class="row" style="margin-top:15px">
+            <div class="col-md-4 info-box">
+              <p style="font-size: 10px">(123) 456-7891</p>
+            </div>
+            <div class="col-md-4 info-box">
+              <p style="font-size: 10px; text-align:center">1234 Main Street, City, State, 12345</p>
+            </div>
+            <div class="col-md-4 info-box">
+              <p style="font-size: 10px">hello@beyondvacation.com</p>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-    </div>
-  </div>
+  </div>   
+</div>
 
-
-
+<!--FOOTER-->
 <div class="spaceholder" style="height: 100px;"></div>
-  <div id="footer" style="text-align: center;">
-    &#169 Beyond Vacation 2020
-  </div>
+<div id="footer" style="text-align: center;">
+  &#169 Beyond Vacation 2020
+</div>
