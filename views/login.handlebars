@@ -1,33 +1,30 @@
+<!--NAVBAR-->
 <nav class="navbar navbar-expand-md navbar-light bg-light">
-  <a class="navbar-brand" href="/" style="color:#FF6666; font-size:27px">BEYOND<p
-      style="color: #339966; font-size:22px">VACATION</p< /a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
-        aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <div class="navbar-nav">
-          <a class="nav-item nav-link" href="/" style="color:#666666">HOME</a>
-          <a class="nav-item nav-link" href="/members" style="color:#666666">MEMBERS</a>
-          <a class="nav-item nav-link" href="/browse" style="color:#666666">BROWSE RENTALS</a>
-          <a class="nav-item nav-link" href="/list" style="color:#666666">LIST RENTAL</a>
-          <a class="nav-item nav-link" href="/signup" style="color:#666666">SIGNUP</a>
-          <a class="nav-item nav-link active" href="/login">LOGIN <span class="sr-only">(current)</span></a>
-          <a class="nav-item nav-link" href="/logout" style="color:#666666">LOG OUT</a>
-        </div>
-      </div>
+  <a class="navbar-brand" href="/" style="color:#FF6666; font-size:27px">
+  BEYOND<p style="color: #339966; font-size:22px">VACATION</p></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button> 
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav mr-auto">
+        <a class="nav-item nav-link" href="/" style="color:#666666">HOME</a>
+        <a class="nav-item nav-link" href="/members"style="color:#666666">MEMBERS</a>
+        <a class="nav-item nav-link" href="/browse"style="color:#666666">BROWSE RENTALS</a>
+        <a class="nav-item nav-link" href="/list" style="color:#666666">LIST RENTAL</a>
+        <a class="nav-item nav-link" href="/signup" style="color:#666666">SIGNUP</a>
+        <a class="nav-item nav-link active" href="/login">LOGIN <span class="sr-only">(current)</span></a>
+        <a class="nav-item nav-link" href="/logout" style="color:#666666">LOG OUT</a>
+    </div>
+  </div>
 </nav>
 
-
-<div class="container">
+<div class="container" id="login-fonts">
   <div class="row">
-    <div class="col-md-6" style="margin-top:25px">
-
+    <div class="col-lg-6" style="margin-top:25px">
+      <!--LOGIN CARD-->
       <div class="card" style="padding:10px">
         <div class="card-header">
-          <h2>Login Form</h2>
+          <h2>Login</h2>
         </div>
-
+        <!--LOGIN FORM-->
         <form class="login" id="login">
           <div class="form-group" style="margin-top: 10px">
             <label for="exampleInputEmail1">Email address</label>
@@ -39,15 +36,14 @@
           </div>
           <button type="submit" class="btn btn-success" id="submit">Login</button>
         </form>
-        <br />
+        <br/>
         <p>Or sign up <a href="/signup">here</a></p>
       </div>
-
     </div>
-  </div>
+   </div>
 </div>
 
-
+<!--FOOTER-->
 <div class="spaceholder" style="height: 100px;"></div>
 <div id="footer" style="text-align: center;">
   &#169 Beyond Vacation 2020

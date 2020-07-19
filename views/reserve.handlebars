@@ -1,63 +1,55 @@
+<!--NAVBAR-->
 <nav class="navbar navbar-expand-md navbar-light bg-light">
-    <a class="navbar-brand" href="/" style="color:#FF6666; font-size:27px">BEYOND<p
-            style="color: #339966; font-size:22px">VACATION</p< /a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
-                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                <div class="navbar-nav">
-                    <a class="nav-item nav-link" href="/" style="color:#666666">HOME</a>
-                    <a class="nav-item nav-link" href="/members" style="color:#666666">MEMBERS</a>
-                    <a class="nav-item nav-link active" href="/browse">BROWSE RENTALS <span
-                            class="sr-only">(current)</span></a>
-                    <a class="nav-item nav-link" href="/list" style="color:#666666">LIST RENTAL</a>
-                    <a class="nav-item nav-link" href="/signup" style="color:#666666">SIGNUP</a>
-                    <a class="nav-item nav-link" href="/login" style="color:#666666">LOGIN</a>
-                    <a class="nav-item nav-link" href="/logout" style="color:#666666">LOG OUT</a>
-                </div>
-            </div>
-</nav>
-
+  <a class="navbar-brand" href="/" style="color:#FF6666; font-size:27px">
+  BEYOND<p style="color: #339966; font-size:22px">VACATION</p></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button> 
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav mr-auto">
+        <a class="nav-item nav-link" href="/" style="color:#666666">HOME</a>
+        <a class="nav-item nav-link" href="/members"style="color:#666666">MEMBERS</a>
+        <a class="nav-item nav-link active" href="/browse">BROWSE RENTALS <span class="sr-only">(current)</span></a>
+        <a class="nav-item nav-link" href="/list" style="color:#666666">LIST RENTAL</a>
+        <a class="nav-item nav-link" href="/signup" style="color:#666666">SIGNUP</a>
+        <a class="nav-item nav-link" href="/login" style="color:#666666">LOGIN</a>
+        <a class="nav-item nav-link" href="/logout" style="color:#666666">LOG OUT</a>
+      </div>
+    </div>
+  </nav>
+<!--JUMBOTRON-->
 <div class="jumbotron jumbotron-fluid" id="jumbo-reserve">
     <div class="container">
         <h1 class="display-4" style="text-align: center;"></h1>
     </div>
 </div>
 
-
-<div class="container">
+<div class="container" id="reserve-fonts">
     <div class="row">
         <div class="col">
+            <!--RESERVE RENTAL CARD-->
             <div class="card">
                 <div class="card-header">
                     <h5>RESERVE RENTAL</h5>
                 </div>
                 <div class="card-body">
-                    <form class="reserve">
+                    <form>
                         <div class="form-row">
-
                             <div class="dropdown col-md-6">
-                                <label for="select rental type">Select rental type</label>
+                            <label for="select rental type">Select rental type</label>
                                 <div>
                                     <select name="list-selections" id="list-selections" class="form-control">
-                                        <option value="RV">RV</option>option>
+                                        <option value="rv">RV</option>option>
                                         <option value="campsites">Campsite</option>
                                         <option value="farmLand">Farmland experience</option>
                                         <option value="waterFront">Waterfront vista</option>
                                         <option value="backyard">Backyard Oasis</option>
-                                    </select>
-
+                                    </select>     
                                 </div>
                             </div>
-
                             <div class="form-group col-md-6">
                                 <label for="inputPrice">Maximum price per day</label>
-                                <input type="number" class="form-control" id="inputPrice"
-                                    placeholder="Enter numbers only">
+                                <input type="number" class="form-control" id="inputPrice" placeholder="Enter numbers only">
                             </div>
                         </div>
-
                         <div class="form-row">
                             <div class="form-group col-md-6">
                                 <label for="inputPartySize">Select party size</label>
@@ -85,10 +77,8 @@
                                     <option value="0">No</option>
                                 </select>
                             </div>
-
                         </div>
-
-                        <button type="button" id="reserve-button" class="btn btn-success">Submit</button>
+                            <button type="submit" id="reserve-button" class="btn btn-success">Submit</button>
                     </form>
                 </div>
             </div>
@@ -96,15 +86,14 @@
     </div>
 </div>
 
+<!--CONTAINER FOR RENTAL LISTINGS-->
 <div class="container" id="vaca-list" style="margin-top:30px">
-
     <div class="row" id="browse-rentals">
-        <!--POPULATE THIS AREA WITH CARDS OF RENTAL LISTINGS-->
-
+        <!--POPULATE THIS AREA WITH CARDS OF RENTAL LISTINGS-->   
     </div>
-
 </div>
 
+<!--FOOTER-->
 <div class="spaceholder" style="height: 100px;"></div>
 <div id="footer" style="text-align: center;">
     &#169 Beyond Vacation 2020

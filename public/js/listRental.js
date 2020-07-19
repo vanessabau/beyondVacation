@@ -1,14 +1,14 @@
 $(document).ready(() => {
   // Getting references to our form and inputs
-  const listForm = $("form.list"); //checked
-  const propertyInput = $("input#property-name"); // poster property name
-  const rentalInput = $("select#list-selections"); //checked
-  const addressInput = $("input#inputAddress"); //checked
-  const cityInput = $("input#inputCity"); //checked
-  const stateInput = $("select#inputState"); // checked
-  const zipInput = $("input#inputZip"); //checked
-  const priceInput = $("input#inputPrice"); //checked
-  const partyInput = $("select#inputPartySize"); //checked
+  const listForm = $("form.list"); 
+  const propertyInput = $("input#property-name"); 
+  const rentalInput = $("select#list-selections"); 
+  const addressInput = $("input#inputAddress"); 
+  const cityInput = $("input#inputCity"); 
+  const stateInput = $("select#inputState"); 
+  const zipInput = $("input#inputZip"); 
+  const priceInput = $("input#inputPrice"); 
+  const partyInput = $("select#inputPartySize"); 
   const facilityInput = $("select#facility");
 
   // When the form is submitted, we validate there's an name and location entered
@@ -16,7 +16,6 @@ $(document).ready(() => {
     event.preventDefault();
 
     const userData = {
-      // <userdata is fine
       property: propertyInput.val().trim(),
       rental: rentalInput.val().trim(),
       address: addressInput.val().trim(),
@@ -27,8 +26,6 @@ $(document).ready(() => {
       party: partyInput.val().trim(),
       facility: facilityInput.val().trim()
     };
-
-    console.log(userData);
 
     if (
       !userData.property ||
@@ -67,18 +64,6 @@ $(document).ready(() => {
     facilityInput.val("");
   });
 
-  // //price range
-  // $('input').on('input', function () {
-
-  //     if ((price !== '') && (price.indexOf('.') === -1)) {
-
-  //         $(this).val(Math.max(Math.min(price, 3000), -0));
-  //     }
-  // });
-
-  //post
-  //ajax req then parse res
-  // loginUser does a post to our "api/login" route and if successful, redirects us the the members page
   function listUser(
     property,
     rental,
@@ -90,7 +75,8 @@ $(document).ready(() => {
     party,
     facility
   ) {
-    // called on right side
+
+    //Get request to gather user data, post request to send user input and id to the Posters table
     $.get("/api/user_data").then(data => {
       $.post("/api/posts", {
         // left side is based on sequelize
@@ -116,4 +102,3 @@ $(document).ready(() => {
   }
 });
 
-//put

@@ -56,6 +56,9 @@ $(document).ready(() => {
   //Click event for the reserve button
   $(document).on("click", "button.reserve", reserveRental);
 
+
+  /////////////////////////// Functions to populate and display all listings for rent ////////////////////////
+
   //Get request to retrieve data from Posts table and display cards
   $.get("/api/posts").then(data => {
     console.log("rentals", data);
@@ -93,14 +96,6 @@ $(document).ready(() => {
         console.log("Rental Reserved");
     };
 
-  //Reserve rental function updates status in database to "reserved" when button is clicked
-  function reserveRental() {
-    //put content here, for now console.log
-    console.log("Rental Reserved");
-
-    //updates status of location to reserved and updates reserved-by to member id who reserves it
-  }
-
   // This function displays a message when there are no rentals
   function displayNoRentals() {
     browseDiv.empty();
@@ -120,6 +115,7 @@ $(document).ready(() => {
     const locationCol = rentalData.location;
     let imgSrc;
 
+    //Switch statement to determine which photo to display based on location name
     switch(locationCol){
     case "RV":
       imgSrc = "../images/AdobeStock_rv.jpeg";
@@ -140,6 +136,7 @@ $(document).ready(() => {
       imgSrc = "../images/AdobeStock_campsite.jpeg";      
     }
 
+    //Dynamically create card to display listing data
     rentalCard.html(
       `<div class="card" style="width: 18rem;">
                 <img class="card-img-top" src=${imgSrc} alt="Card image cap">
@@ -164,9 +161,21 @@ $(document).ready(() => {
                 <button type="button" data-id='${rentalData.id}' class="btn btn-outline-success reserve">Reserve this location</button>
                 </div>
               </div>`
-    );
 
-    // $(".card-img-top").attr("src", imgSrc)
+    );
+    //Append card
     browseDiv.append(rentalCard);
   }
+
+////////////////////////// Reserve rental function below /////////////////////////////////////
+
+  //Reserve rental function updates status in database to "reserved" when button is clicked
+  function reserveRental() {
+    //put content here, for now console.log
+    console.log("Rental Reserved");
+
+    //updates status of location to reserved and updates reserved-by to member id who reserves it
+  }
+
+  ////////////////////////// Filter functions below /////////////////////////////////////
 });

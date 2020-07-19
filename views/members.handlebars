@@ -1,62 +1,52 @@
+<!--NAVBAR-->
 <nav class="navbar navbar-expand-md navbar-light bg-light">
-    <a class="navbar-brand" href="/" style="color:#FF6666; font-size:27px">BEYOND<p
-            style="color: #339966; font-size:22px">VACATION</p< /a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
-                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                <div class="navbar-nav">
-                    <a class="nav-item nav-link" href="/" style="color:#666666">HOME</a>
-                    <a class="nav-item nav-link active" href="/members">MEMBERS <span
-                            class="sr-only">(current)</span></a>
-                    <a class="nav-item nav-link" href="/browse" style="color:#666666">BROWSE RENTALS</a>
-                    <a class="nav-item nav-link" href="/list" style="color:#666666">LIST RENTAL</a>
-                    <a class="nav-item nav-link" href="/signup" style="color:#666666">SIGNUP</a>
-                    <a class="nav-item nav-link" href="/login" style="color:#666666">LOGIN</a>
-                    <a class="nav-item nav-link" href="/logout" style="color:#666666">LOG OUT</a>
-                </div>
-            </div>
+  <a class="navbar-brand" href="/" style="color:#FF6666; font-size:27px">
+  BEYOND<p style="color: #339966; font-size:22px">VACATION</p></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button> 
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav mr-auto">
+        <a class="nav-item nav-link" href="/" style="color:#666666">HOME</a>
+        <a class="nav-item nav-link active" href="/members">MEMBERS <span class="sr-only">(current)</span></a>
+        <a class="nav-item nav-link" href="/browse"style="color:#666666">BROWSE RENTALS</a>
+        <a class="nav-item nav-link" href="/list" style="color:#666666">LIST RENTAL</a>
+        <a class="nav-item nav-link" href="/signup" style="color:#666666">SIGNUP</a>
+        <a class="nav-item nav-link" href="/login" style="color:#666666">LOGIN</a>
+        <a class="nav-item nav-link" href="/logout" style="color:#666666">LOG OUT</a>
+     </div>
+    </div>
 </nav>
-
 
 <div class="container">
     <div class="row">
         <div class="col">
-
+            <!--MEMBERS CARD-->
             <div class="card" style="margin-top: 32px">
                 <div class="card-header">
-                    <h5 style="word-spacing: 1rem;">WELCOME <span id="first-name"></span> <span id="last-name"></span>
-                        email: <span id="email"></span> Id: <span id="id"></span></h5>
+                    <h5 style="word-spacing: .25rem; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color:#666666">WELCOME <span id="first-name"></span> <span id="last-name"></span>    email: <span id="email"></span>   user id: <span id="id"></span></h5>
                 </div>
                 <div class="card-body">
-                    <form>
-
-                        <div class="form-row">
-                            <h5>YOUR LISTINGS</h>
-                        </div>
-
-                        <div class="form-row" id="member-listings">
-                            <!--POPULATE THIS AREA WITH CARDS OF RENTAL LISTINGS-->
-                        </div>
-
-                        <hr>
-
-                        <div class="form-row">
-                            <h5>YOUR RENTALS</h>
-                        </div>
-
-                        <div class="form-row" id="member-reservations">
-                            <!--POPULATE THIS AREA WITH CARDS OF RENTAL RESERVATIONS-->
-                        </div>
-
-                    </form>
-                </div>
+                <form>        
+                    <div class="form-row">
+                        <h5 style="color:#666666; margin-top:15px; margin-bottom:20px">YOUR LISTINGS</h>
+                    </div>
+                    <div class="form-row" id="member-listings">
+                    <!--POPULATE THIS AREA WITH CARDS OF RENTAL LISTINGS-->
+                    </div>
+                    <hr>
+                    <div class="form-row">
+                        <h5 style="color:#666666; margin-top:20px; margin-bottom:20px">YOUR RENTALS</h>
+                    </div>
+                    <div class="form-row" id="member-reservations">
+                    <!--POPULATE THIS AREA WITH CARDS OF RENTAL RESERVATIONS-->
+                    </div>
+                </form>
             </div>
         </div>
     </div>
+</div>
 
-    <div class="spaceholder" style="height: 100px;"></div>
-    <div id="footer" style="text-align: center;">
-        &#169 Beyond Vacation 2020
-    </div>
+<!--FOOTER-->
+<div class="spaceholder" style="height: 100px;"></div>
+<div id="footer" style="text-align: center;">
+    &#169 Beyond Vacation 2020
+</div>
