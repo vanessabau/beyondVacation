@@ -53,6 +53,7 @@ $(document).ready(() => {
       .catch(handleLoginErr);
   }
 
+  //Function to handle login error
   function handleLoginErr(err) {
     $("#alert .msg").text(err.responseJSON);
     $("#alert").fadeIn(500);
