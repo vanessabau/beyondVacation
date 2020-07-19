@@ -10,6 +10,7 @@ $(document).ready(() => {
     // When the form is submitted, we validate there's an name and location entered
     reserveForm.on("click", function (event) {
         event.preventDefault();
+        
         var userData = {
             rental: rentalReserve.val(),
             price: priceReserve.val(),
@@ -26,7 +27,8 @@ $(document).ready(() => {
     });
 
     function listUser(rental, price, party, facility) { // called on right side 
-        console.log("test")
+        console.log("test");
+        
         $.post("/api/posts/filtered", { // left side is based on sequelize
             location: rental,
             price: price,
@@ -34,16 +36,13 @@ $(document).ready(() => {
             facility: facility
         })
             .then(function (results) {
-                browseDiv.empty()
-                console.log("headache")
+                console.log(results);
                 for (i = 0; i < results.length; i++) {
+                    browseDiv.empty();
                     displayRental(results[i]);
-                } //later for whichever html
-                // If there's an error, log the error
+                }
             })
-        // .catch(function (err) {
-        //     console.log(err);
-        // });
+  
     }
    
 
@@ -83,17 +82,20 @@ $(document).ready(() => {
         const dataObject = {};
 
         dataObject.id = dataId
-
-        $.ajax({
-            url: '/api/posts',
+        $.get("/api/user_data").then(userData =>{
+          $.ajax({
+            url: '/api/posts/'+userData.id,
             type: 'PUT',
             data: dataObject,
 
         }).then(function () {
             console.log("success");
+            window.location.replace("/members");
         })
         //put content here, for now console.log
         console.log("Rental Reserved");
+        });
+        
     };
 
   // This function displays a message when there are no rentals
@@ -109,6 +111,7 @@ $(document).ready(() => {
 
   //Function to display rentals
   function displayRental(rentalData) {
+    
     const rentalCard = $("<div>");
     rentalCard.addClass("col");
 
@@ -169,13 +172,7 @@ $(document).ready(() => {
 
 ////////////////////////// Reserve rental function below /////////////////////////////////////
 
-  //Reserve rental function updates status in database to "reserved" when button is clicked
-  function reserveRental() {
-    //put content here, for now console.log
-    console.log("Rental Reserved");
-
-    //updates status of location to reserved and updates reserved-by to member id who reserves it
-  }
+  
 
   ////////////////////////// Filter functions below /////////////////////////////////////
 });
