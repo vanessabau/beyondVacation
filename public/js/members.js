@@ -207,7 +207,7 @@ $(document).ready(() => {
               <a class="dropdown-item" href="#">Bathrooms available: ${memberReservations[j].facility}</a>
             </div>
           </div>
-          <button type="button" class="btn btn-outline-success delete">Delete Rental</button>
+          <button type="button" data-id-one='${memberReservations[j].id}' class="btn btn-outline-success delete">Delete Rental</button>
         </div>
       </div>`
     );
@@ -216,7 +216,25 @@ $(document).ready(() => {
   };
 });
 
+
+
 ////////////////////////////////////// Delete Function Below //////////////////////////////////////
+
+function deleteList() {
+
+  console.log("test")
+  const id = $(this).attr("data-id-one");
+
+  $.ajax({
+    url: '/api/posts/' + id,
+    type: 'DELETE',
+
+  }).then(function () {
+    console.log("success");
+  })
+  //put content here, for now console.log
+  console.log("Rental Reserved");
+};
 
 // //can we switch document with delete-reserve?
 // //$(document).on("click", "button.delete", deleteList);
