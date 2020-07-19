@@ -50,7 +50,7 @@ $(document).ready(() => {
     const locationCol = rentalData[i].location;
     let imgSrc;
 
-    switch (locationCol) {
+    switch(locationCol){
     case "RV":
       imgSrc = "../images/AdobeStock_rv.jpeg";
       break;
@@ -67,10 +67,8 @@ $(document).ready(() => {
       imgSrc = "../images/AdobeStock_backyard.jpeg";
       break;
     default:
-      imgSrc = "../images/AdobeStock_campsite.jpeg";
+      imgSrc = "../images/AdobeStock_campsite.jpeg";      
     }
-
-    console.log("lin74" + locationCol + "imgSrc" + imgSrc);
 
     rentalCard.html(
       `<div class="card" style="width: 18rem;">
