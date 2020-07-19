@@ -9,8 +9,11 @@ $(document).ready(() => {
   var memberListings;
   var memberReservations;
 
-  //Click event for the delete buttons
-  //$(document).on("click", "button.delete", deleteList);
+  //Click event for the delete listing buttons
+  $(document).on("click", "button.delete", deleteList);
+
+  //Click event for the delete rental button
+  $(document).on("click", "button.unReserve", unReserve);
 
   //GET request to figure out which user is logged in, update the HTML, and initialize functions
   $.get("/api/user_data").then(data => {
@@ -111,7 +114,7 @@ $(document).ready(() => {
               <a class="dropdown-item" href="#">Bathrooms available: ${memberListings[i].facility}</a>
             </div>
           </div>
-            <button type="button" class="btn btn-outline-success delete">Delete Listing</button>
+            <button type="button" data-id-one='${memberListings[i].id}'class="btn btn-outline-success delete">Delete Listing</button>
           </div>
         </div>`
     );
@@ -207,57 +210,48 @@ $(document).ready(() => {
               <a class="dropdown-item" href="#">Bathrooms available: ${memberReservations[j].facility}</a>
             </div>
           </div>
-          <button type="button" data-id-one='${memberReservations[j].id}' class="btn btn-outline-success delete">Delete Rental</button>
+          <button type="button" data-id-notReserved='${memberReservations[j].id}' class="btn btn-outline-success unReserve">Delete Rental</button>
         </div>
       </div>`
     );
     //Append cards 
     membersResDiv.append(newRes);
   };
+
+////////////////////////////////////// Delete Listing Function Below //////////////////////////////////////
+
+//This deletes entire listing
+  function deleteList() {
+
+    console.log("test")
+    const id = $(this).attr("data-id-one");
+
+    $.ajax({
+      url: '/api/posts/' + id,
+      type: 'DELETE',
+
+    }).then(function () {
+      console.log("success");
+      window.location.replace("/members");
+    })
+    //put content here, for now console.log
+  
+    console.log("Rental Reserved");
+  };
+
+
+  /////////////////////////////////// Delete Reservation function below //////////////////////////////////////
+
+  //Function that updates the reserved column to 0, and the reservedBy to NULL
+  function unReserve() {
+    const id = $(this).attr("data-id-notReserved");
+    $.ajax({
+      url: "/api/posts/unreserve/" + id,
+      type: "PUT"
+    }).then(function() {
+      window.location.replace("/members");
+    })
+  }
+
 });
 
-
-
-////////////////////////////////////// Delete Function Below //////////////////////////////////////
-
-function deleteList() {
-
-  console.log("test")
-  const id = $(this).attr("data-id-one");
-
-  $.ajax({
-    url: '/api/posts/' + id,
-    type: 'DELETE',
-
-  }).then(function () {
-    console.log("success");
-  })
-  //put content here, for now console.log
-  console.log("Rental Reserved");
-};
-
-// //can we switch document with delete-reserve?
-// //$(document).on("click", "button.delete", deleteList);
-// function deleteList(event) {
-//   event.stopPropagation();
-//   var id = $(this).data("id");
-//   $.ajax({
-//     method: "DELETE",
-//     url: "/api/posts/" + id
-//   }).then(listUser);
-// };
-
-// $(".delete-reserve").on("click", function listUser() { //delete list
-//   var id = $(this).data("id");
-
-//   // Send the DELETE request.
-//   $.ajax("/api/posts/" + id, {
-//       type: "DELETE"
-//   }).then(
-//       function () {
-//           console.log("deleted posts", id);
-//           // Reload the page to get the updated list
-//           location.reload();
-//       }
-//   );
-// });

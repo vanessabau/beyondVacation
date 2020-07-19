@@ -158,19 +158,20 @@ module.exports = function(app) {
     });
   });
 
-  // Route to get one listing based on id:
-  // app.get("/api/posts/:id", (req, res) => {
-  //   db.Poster.findAll(
-  //     { where: { UserId: req.params.id }, include: db.User
-  //    }).then((list) => {
-  //     res.json(list);
-  //   });
-  //   console.log("api-routes, list: " + list);
-  // })
-
   // Route to update for when a listing is reserved:
-  app.put("/api/posts", (req, res) => {
-    db.Poster.update({ reserved: true }, { where: { id: req.body.id } }).then(list => {
+  app.put("/api/posts/:resId", (req, res) => {
+    db.Poster.update({ reserved: true, reservedBy: req.params.resId }, { where: { id: req.body.id }, include: db.User}).then(list => {
+      res.json(list);
+    });
+  });
+
+  //Route to update listing for when it is unreserved
+  app.put("/api/posts/unreserve/:id", (req, res) => {
+    db.Poster.update({ 
+      reserved: false, 
+      reservedBy: null }, 
+      { where: { id: req.params.id } })
+      .then(list => {
       res.json(list);
     });
   });

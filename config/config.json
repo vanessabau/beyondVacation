@@ -1,11 +1,7 @@
 {
   "development": {
     "username": "root",
-<<<<<<< HEAD
     "password": "area",
-=======
-    "password": "root",
->>>>>>> 54c395fd4ae8567328baf5baf59ce42fb841b4d0
     "database": "beyondvacation_db",
     "host": "127.0.0.1",
     "dialect": "mysql"
