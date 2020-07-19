@@ -7,6 +7,7 @@ Beyond Vacation is a centralized location for outdoor rental spaces. Built aroun
 ## Table of Contents
 
 * [Overview](#overview)
+* [Page Breakdown](#pagebreakdown)
 * [Usage](#usage)
 * [Demo](#demo)
 * [Technology](#technology)
@@ -27,11 +28,25 @@ The application is made up six pages:
 5. Signup
 6. Login
 
-Home page includes, from the top:
+### Page Breakdown
+
+#### Home page, from the top:
+
 * Navbar with name of website, and links to the other pages, including a log out link if the user is logged in already
 * A jumbotron containing an image
 * A quote by John Muir
+* Two cards that take user to 'Browse Rentals' or 'List Rental'
 * 
+
+#### Members page
+
+#### Browse Rentals page
+
+#### List Rental page
+
+#### Signup page
+
+#### Login page
 
 ### Usage
 
