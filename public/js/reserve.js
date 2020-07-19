@@ -1,6 +1,6 @@
+/* eslint-disable prettier/prettier */
 $(document).ready(() => {
-
-
+  
     var reserveForm = $("#reserve-button");
     var rentalReserve = $("#list-selections");
     var priceReserve = $("#inputPrice");
@@ -45,36 +45,32 @@ $(document).ready(() => {
         //     console.log(err);
         // });
     }
+   
 
+  //browseDiv to hold all rental cards
+  const browseDiv = $("#browse-rentals");
 
+  //variable to hold data from database
+  let rentalData;
 
+  //Click event for the reserve button
+  $(document).on("click", "button.reserve", reserveRental);
 
-    //browseDiv to hold all rental cards
-    var browseDiv = $("#browse-rentals");
-
-    //variable to hold data from database
-    var rentalData;
-
-    //Click event for the reserve button
-    $(document).on("click", "button.reserve", reserveRental);
-
-    //Get request to retrieve data from Posts table and display cards
-    $.get("/api/posts").then(data => {
-        console.log("rentals", data);
-        rentalData = data;
-        console.log("listingData:", rentalData);
-
-        if (!rentalData || !rentalData.length) {
-            displayNoRentals();
-        } else {
-            for (i = 0; i < rentalData.length; i++) {
-                displayRental(rentalData[i]);
-            }
-        }
-
-    });
-
-    //Reserve rental function updates status in database to "reserved" when button is clicked
+  //Get request to retrieve data from Posts table and display cards
+  $.get("/api/posts").then(data => {
+    console.log("rentals", data);
+    rentalData = data;
+    console.log("listingData:", rentalData);
+    if (!rentalData || !rentalData.length) {
+      displayNoRentals();
+    } else {
+      for (i = 0; i < rentalData.length; i++) {
+        displayRental(rentalData[i]);
+      }
+    }
+  });
+  
+   //Reserve rental function updates status in database to "reserved" when button is clicked
     function reserveRental() {
 
         console.log("test")
@@ -97,50 +93,55 @@ $(document).ready(() => {
         console.log("Rental Reserved");
     };
 
-    // This function displays a message when there are no rentals
-    function displayNoRentals() {
-        browseDiv.empty();
-        var messageH5 = $("<h5>");
-        messageH5.css({ "margin-top": "25px" });
-        messageH5.html("No listings found, navigate <a href='/'>here</a> to visit homepage");
-        browseDiv.append(messageH5);
-    };
+  //Reserve rental function updates status in database to "reserved" when button is clicked
+  function reserveRental() {
+    //put content here, for now console.log
+    console.log("Rental Reserved");
 
-    //Function to display rentals
-    function displayRental(rentalData) {
-        var rentalCard = $("<div>");
-        rentalCard.addClass("col");
+    //updates status of location to reserved and updates reserved-by to member id who reserves it
+  }
 
-        var locationCol = rentalData.location;
-        var imgSrc;
+  // This function displays a message when there are no rentals
+  function displayNoRentals() {
+    browseDiv.empty();
+    const messageH5 = $("<h5>");
+    messageH5.css({ "margin-top": "25px" });
+    messageH5.html(
+      "No listings found, navigate <a href='/'>here</a> to visit homepage"
+    );
+    browseDiv.append(messageH5);
+  }
 
+  //Function to display rentals
+  function displayRental(rentalData) {
+    const rentalCard = $("<div>");
+    rentalCard.addClass("col");
 
-        switch (locationCol) {
-            case "RV":
-                imgSrc = "../images/AdobeStock_rv.jpeg";
-                break;
-            case "Campsites":
-                imgSrc = "../images/AdobeStock_default.jpeg";
-                break;
-            case "Farmland":
-                imgSrc = "../images/AdobeStock_farmland.jpeg";
-                break;
-            case "Waterfront":
-                imgSrc = "../images/AdobeStock_waterfront.jpeg";
-                break;
-            case "Backyard":
-                imgSrc = "../images/AdobeStock_backyard.jpeg";
-                break;
-            default:
-                imgSrc = "../images/AdobeStock_campsite.jpeg";
-        };
+    const locationCol = rentalData.location;
+    let imgSrc;
 
+    switch(locationCol){
+    case "RV":
+      imgSrc = "../images/AdobeStock_rv.jpeg";
+      break;
+    case "Campsites":
+      imgSrc = "../images/AdobeStock_default.jpeg";
+      break;
+    case "Farmland":
+      imgSrc = "../images/AdobeStock_farmland.jpeg";
+      break;
+    case "Waterfront":
+      imgSrc = "../images/AdobeStock_waterfront.jpeg";
+      break;
+    case "Backyard":
+      imgSrc = "../images/AdobeStock_backyard.jpeg";
+      break;
+    default:
+      imgSrc = "../images/AdobeStock_campsite.jpeg";      
+    }
 
-        console.log("lin74" + locationCol + "imgSrc" + imgSrc);
-
-
-        rentalCard.html(
-            `<div class="card" style="width: 18rem;">
+    rentalCard.html(
+      `<div class="card" style="width: 18rem;">
                 <img class="card-img-top" src=${imgSrc} alt="Card image cap">
                 <div class="card-body">
                     <h5>${rentalData.property_name}</h5>
@@ -163,15 +164,9 @@ $(document).ready(() => {
                 <button type="button" data-id='${rentalData.id}' class="btn btn-outline-success reserve">Reserve this location</button>
                 </div>
               </div>`
-        )
+    );
 
-        // $(".card-img-top").attr("src", imgSrc)
-        browseDiv.append(rentalCard);
-
-        // <button type="button" class="btn btn-outline-success reserve">Reserve this location</button>
-
-        // $(".card-img-top").attr("src", imgSrc)
-        browseDiv.append(rentalCard);
-
-    };
+    // $(".card-img-top").attr("src", imgSrc)
+    browseDiv.append(rentalCard);
+  }
 });
