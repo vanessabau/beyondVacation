@@ -16,8 +16,10 @@ Beyond Vacation is a centralized location for outdoor rental spaces. Built aroun
     - [Signup](#signup)
     - [Login](#login)
 * [Usage](#usage)
-    - [Step 1](#step1)
-    - [Step 2](#step2)
+    - [Accesssing Home page](#accessinghomepage)
+    - [Navigating Members page](#navigatingmemberspage)
+    - [Browsing Rentals](#browsingrentals)
+    - [Listing Rentals](#listingrentals)
 * [Technology](#technology)
     - [Tech and Methods Breakdown](#techandmethodbreakdown)
 * [Contributors](#contributors)
@@ -66,13 +68,28 @@ Scrolling even further down will reveal our project's motivation and purpose. An
 
 ### Usage
 
-##### Step 1
+##### Accesssing Home page
 
-On the home page the user can either navigate using the navbar or scroll down to the two square buttons to choose 'Browse Rentals' or 'List Rentals'. 
+On the home page the user can either navigate using the navbar or scroll down to the two square buttons to choose `Browse Rentals` or `List Rentals`. 
 
 If the user is not logged in, they will be redirected to the login page. Where they can login or signup.
 
-##### Step 2
+##### Navigating Members page
+
+Once logged in the user will be redirected to their members page where the rental spaces they have listed and the spaces they've reserved are shown.
+
+Clicking on the arrow for the `Details` button will reveal the details of the listings and reservations. 
+
+`Delete Listing` will remove their listing from the database.
+
+`Delete Rental` will cancel their reservation.
+
+##### Browsing Rentals
+
+
+
+
+##### Listing Rentals
 
 
 ### Technology
