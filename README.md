@@ -8,20 +8,17 @@ Beyond Vacation is a centralized location for outdoor rental spaces. Built aroun
 
 * [Demo](#demo)
 * [Overview](#overview)
-* [Visual Breakdown](#visualbreakdown)
-    - [Home](#home)
-    - [Members](#members)
-    - [Browse Rentals](#browserentals)
-    - [List Rental](#listrental)
-    - [Signup](#signup)
-    - [Login](#login)
 * [Usage](#usage)
     - [Accesssing Home page](#accessinghomepage)
     - [Navigating Members page](#navigatingmemberspage)
     - [Browsing Rentals](#browsingrentals)
     - [Listing Rentals](#listingrentals)
-* [Technology](#technology)
-    - [Tech and Methods Breakdown](#techandmethodbreakdown)
+    - [Login](#login)
+    - [Signup](#signup)
+* [Tech and Methods Breakdown](#techandmethodbreakdown)
+    - [Technology](#technology)
+    - [Front-End](#frontend)
+    - [Back-End](#backend)
 * [Contributors](#contributors)
 * [Launch](#launch)
 
@@ -29,42 +26,19 @@ Beyond Vacation is a centralized location for outdoor rental spaces. Built aroun
 
 For a [video demo]() of the web page
 
-For the [finished web page]()
+For the [finished web page](https://beyondvacation.herokuapp.com/)
 
 ### Overview
 
 Once logged in, users can list outdoor locations and reserve locations, as well as view all rental spaces they've listed or reserved in one centralized location on their members page. On said members page, users can remove a rental space they listed or cancel a reservation.
 
-### Visual Breakdown
-
 The application is made up six pages:
-1. [Home](#home)
-2. [Members](#members)
-3. [Browse Rentals](#browserentals)
-4. [List Rental](#listrental)
-5. [Signup](#signup)
-6. [Login](#login)
-
-///something here?///////////
-
-##### Home page
-
-Upon the loading of the Home page, they are greeted by a navbar where they can choose to login or signup. 
-
-As they scroll pass the image and John Muir quote, they will be greeted by two options, Browse Rentals and List Rentals. 
-
-Scrolling even further down will reveal our project's motivation and purpose. And underneath this will be social media links and placeholder contact information.
-
-##### Members page
-
-##### Browse Rentals
-
-##### List Rental
-
-##### Signup
-
-##### Login
-
+1. Home
+2. Members
+3. Browse Rentals
+4. List Rental
+5. Signup
+6. Login
 
 ### Usage
 
@@ -86,27 +60,94 @@ Clicking on the arrow for the `Details` button will reveal the details of the li
 
 ##### Browsing Rentals
 
+To access the browse function, click on `Browse Rentals` from the navbar.
 
+On the browse page, there are four options to filter by: 
+* Rental type
+    - RV
+    - Campsite
+    - Farmland experience
+    - Waterfront vista
+    - Backyard Oasis
+* Party size 
+* Maximum price per day
+* Location with bathroom facilities (Yes or No)
 
+Choose any combination of each option and click `Submit`.
+
+Rental spaces with these options will be filtered out for your view.
+
+To reserve, simply click `Reserve this location`.
 
 ##### Listing Rentals
 
+To access the listing function, click on `List Rental` from the navbar.
 
-### Technology
+The user will need to fill out a form with all of the required information before clicking submit:
+* Property Name
+* Rental Type
+* Address
+* City
+* State
+* 5-digit Zip code
+* Price per day
+* Party size
+* Whether the rental space has accessable bathroom facilities
+* And if the location is currently available
+
+Once done, click `Submit`.
+
+##### Login
+
+Input your email and password. If credentials are wrong, page will reset.
+
+##### Signup
+
+Fill out form with all required information before clicking submit:
+* First Name
+* Last Name
+* Email
+* Password
+* Confirm Password
+
+Once done, click `Submit`. User will be redirected to login page.
+
+### Tech and Methods Breakdown
+
+##### Technology
 
 * VS Code v1.47.1
 * shields.io
 * Node v12.16.1
 * MySQL v8.0.20
 * Express-handlebars
+* handlebars
 * Sequelize
 * req-flash
 * express-session
 * passport
+* Bootstrap
+* jQuery
 
-#### Tech and Methods Breakdown
+##### Front-End
 
-/////here put how and where we used each technology
+Handlebars with express-handlebars was used for templating. Bootstrap was the backbone html and css that the application was built off of.
+
+jQuery was used for all the functionality of the application, ajax calls (get, post, put, delete) were used to talk to the database to pull data from Poster.js and User.js.
+
+##### Back-End
+
+Database was made using MySQL and Sequelize. 
+
+Two models make up the database: User.js and Poster.js 
+
+User.js holds the first and last name of the user, as well as the email and password. Passport is used to protect the user's password from exposure and is used to authenticate credentials.
+
+Poster.js holds all other information, information from the `List Rental` form, id of user (from User model) who reserved it, foreign id with User model to associate listings with users.
+
+Handlebars-routes render the handlebars templates and related jquery file for the related template. And use middleware to protect the browser, list, and members pages from a user accessing them without loggin in first.
+
+Api-routes was the in-between for the database and the front end. Passport was used to autheticate credentials when a user logs in. Req-flash was used to log errors to the terminal when incorrect email or password was entered. 
 
 ### Contributors
 
@@ -117,4 +158,4 @@ Clicking on the arrow for the `Details` button will reveal the details of the li
 
 ### Launch
 
-Date [application]() releases: `July 21st, 2020`
+Date [application](https://beyondvacation.herokuapp.com/) releases: `July 21st, 2020`
