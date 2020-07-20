@@ -6,59 +6,74 @@ Beyond Vacation is a centralized location for outdoor rental spaces. Built aroun
 
 ## Table of Contents
 
-* [Overview](#overview)
-* [Page Breakdown](#pagebreakdown)
-* [Usage](#usage)
 * [Demo](#demo)
+* [Overview](#overview)
+* [Visual Breakdown](#visualbreakdown)
+    - [Home](#home)
+    - [Members](#members)
+    - [Browse Rentals](#browserentals)
+    - [List Rental](#listrental)
+    - [Signup](#signup)
+    - [Login](#login)
+* [Usage](#usage)
+    - [Step 1](#step1)
+    - [Step 2](#step2)
 * [Technology](#technology)
-* [Tests](#tests)
+    - [Tech and Methods Breakdown](#techandmethodbreakdown)
 * [Contributors](#contributors)
-* [License](#license)
 * [Launch](#launch)
-
-### Overview
-
-Once logged in, users can list outdoor locations and reserve locations or view all rental spaces they've listed or reserved in one centralized location on their members page. And on the members page they can remove a rental space they listed or cancel a reservation.
-
-The application is made up six pages:
-1. Home
-2. Members
-3. Browse Rentals
-4. List Rental
-5. Signup
-6. Login
-
-### Page Breakdown
-
-#### Home page, from the top:
-
-* Navbar with name of website, and links to the other pages, including a log out link if the user is logged in already
-* A jumbotron containing an image
-* A quote by John Muir
-* Two cards that take user to 'Browse Rentals' or 'List Rental'
-* 
-
-#### Members page
-
-#### Browse Rentals page
-
-#### List Rental page
-
-#### Signup page
-
-#### Login page
-
-### Usage
-
-Upon the loading of the Home page, they are greeted by a navbar where they can choose to login or signup. 
-
-
-
-
 
 ### Demo
 
-[To youtube!]() - coming soon!
+For a [video demo]() of the web page
+
+For the [finished web page]()
+
+### Overview
+
+Once logged in, users can list outdoor locations and reserve locations, as well as view all rental spaces they've listed or reserved in one centralized location on their members page. On said members page, users can remove a rental space they listed or cancel a reservation.
+
+### Visual Breakdown
+
+The application is made up six pages:
+1. [Home](#home)
+2. [Members](#members)
+3. [Browse Rentals](#browserentals)
+4. [List Rental](#listrental)
+5. [Signup](#signup)
+6. [Login](#login)
+
+///something here?///////////
+
+##### Home page
+
+Upon the loading of the Home page, they are greeted by a navbar where they can choose to login or signup. 
+
+As they scroll pass the image and John Muir quote, they will be greeted by two options, Browse Rentals and List Rentals. 
+
+Scrolling even further down will reveal our project's motivation and purpose. And underneath this will be social media links and placeholder contact information.
+
+##### Members page
+
+##### Browse Rentals
+
+##### List Rental
+
+##### Signup
+
+##### Login
+
+
+### Usage
+
+##### Step 1
+
+On the home page the user can either navigate using the navbar or scroll down to the two square buttons to choose 'Browse Rentals' or 'List Rentals'. 
+
+If the user is not logged in, they will be redirected to the login page. Where they can login or signup.
+
+##### Step 2
+
 
 ### Technology
 
@@ -72,11 +87,9 @@ Upon the loading of the Home page, they are greeted by a navbar where they can c
 * express-session
 * passport
 
-### Tests
+#### Tech and Methods Breakdown
 
-Enter the following to test:
-
-`no tests`
+/////here put how and where we used each technology
 
 ### Contributors
 
@@ -85,12 +98,6 @@ Enter the following to test:
 * Saular Moaddeli
 * KaiWei Shen
 
-### License
-
-None
-
 ### Launch
 
-Date application releases: `July 21st, 2020`
-
-[Link to App]() - coming soon!
+Date [application]() releases: `July 21st, 2020`
