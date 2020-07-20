@@ -6,7 +6,7 @@ const db = require("../models");
 module.exports = function(app) {
   //database call
   app.get("/", (req, res) => {
-    //tells us we are using the view engine - index view
+    //grabs the data from the database from the Poster model/table and renders it on index handlebars
     db.Poster.findAll().then(data => {
       //console.log(data);
       res.render("index", {

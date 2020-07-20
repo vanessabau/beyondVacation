@@ -29,7 +29,7 @@ app.use(flash());
 flash({ locals: "flash" });
 // Set Handlebars.
 const exphbs = require("express-handlebars");
-
+//tells us we are using the view engine handlebars - main view
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
