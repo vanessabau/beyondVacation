@@ -19,12 +19,14 @@ Beyond Vacation is a centralized location for outdoor rental spaces. Built aroun
     - [Technology](#technology)
     - [Front-End](#frontend)
     - [Back-End](#backend)
+* [Known Issues](#knownissues)
 * [Contributors](#contributors)
 * [Launch](#launch)
+* [Future Development](#futuredevelopment)
 
 ### Demo
 
-For a [video demo]() of the web page
+For a [video demo](https://youtu.be/xY4kl7mzGEk) of the web page
 
 For the [finished web page](https://beyondvacation.herokuapp.com/)
 
@@ -32,7 +34,7 @@ For the [finished web page](https://beyondvacation.herokuapp.com/)
 
 Once logged in, users can list outdoor locations and reserve locations, as well as view all rental spaces they've listed or reserved in one centralized location on their members page. On said members page, users can remove a rental space they listed or cancel a reservation.
 
-The application is made up six pages:
+The application is made up of six pages:
 1. Home
 2. Members
 3. Browse Rentals
@@ -73,7 +75,7 @@ On the browse page, there are four options to filter by:
 * Maximum price per day
 * Location with bathroom facilities (Yes or No)
 
-Choose any combination of each option and click `Submit`.
+Choose each option one at a time to filter rental spaces and click `Submit`. 
 
 Rental spaces with these options will be filtered out for your view.
 
@@ -117,9 +119,9 @@ Once done, click `Submit`. User will be redirected to login page.
 ##### Technology
 
 * VS Code v1.47.1
-* shields.io
 * Node v12.16.1
 * MySQL v8.0.20
+* MVC Pattern
 * Express-handlebars
 * handlebars
 * Sequelize
@@ -128,12 +130,14 @@ Once done, click `Submit`. User will be redirected to login page.
 * passport
 * Bootstrap
 * jQuery
+* Adobe InDesign
+* shields.io
 
 ##### Front-End
 
-Handlebars with express-handlebars was used for templating. Bootstrap was the backbone html and css that the application was built off of.
+Handlebars with express-handlebars was used for templating. Bootstrap was the backbone html and css that the application was built off of. Adobe InDesign was used to create visual template for home page.
 
-jQuery was used for all the functionality of the application, ajax calls (get, post, put, delete) were used to talk to the database to pull data from Poster.js and User.js.
+jQuery was used for all the functionality of the application. Ajax calls (get, post, put, delete) were used to talk to the database to pull data from Poster and User models.
 
 ##### Back-End
 
@@ -149,6 +153,14 @@ Handlebars-routes render the handlebars templates and related jquery file for th
 
 Api-routes was the in-between for the database and the front end. Passport was used to autheticate credentials when a user logs in. Req-flash was used to log errors to the terminal when incorrect email or password was entered. 
 
+### Known Issues
+
+Browse Page:
+* Less than or equal to operator not working, cards will only render if options chosen exactly match info on rental space
+* Choosing party size + max price per day must be submitted twice for cards to render
+* Choosing rental type, party size and bathroom facilities work together at the first submit but not with max price per day included
+    - All options must be chosen and submitted twice
+
 ### Contributors
 
 * Sandra Arredondo
@@ -159,3 +171,11 @@ Api-routes was the in-between for the database and the front end. Passport was u
 ### Launch
 
 Date [application](https://beyondvacation.herokuapp.com/) releases: `July 21st, 2020`
+
+### Future Development
+
+* Alert user login data is invalid
+* Add a map api to listings
+* Allow users to post photos of their listings
+* Allow users to reserve for a specific date
+* Allow users to post and share more information to their profiles, such as photos
