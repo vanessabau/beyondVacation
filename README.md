@@ -22,10 +22,11 @@ Beyond Vacation is a centralized location for outdoor rental spaces. Built aroun
 * [Known Issues](#knownissues)
 * [Contributors](#contributors)
 * [Launch](#launch)
+* [Future Development](#futuredevelopment)
 
 ### Demo
 
-For a [video demo]() of the web page
+For a [video demo](https://youtu.be/xY4kl7mzGEk) of the web page
 
 For the [finished web page](https://beyondvacation.herokuapp.com/)
 
@@ -170,3 +171,11 @@ Browse Page:
 ### Launch
 
 Date [application](https://beyondvacation.herokuapp.com/) releases: `July 21st, 2020`
+
+### Future Development
+
+* Alert user login data is invalid
+* Add a map api to listings
+* Allow users to post photos of their listings
+* Allow users to reserve for a specific date
+* Allow users to post and share more information to their profiles, such as photos
