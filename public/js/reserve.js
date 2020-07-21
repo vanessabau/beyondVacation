@@ -37,8 +37,9 @@ $(document).ready(() => {
         })
             .then(function (results) {
                 console.log(results);
+                browseDiv.empty();
                 for (i = 0; i < results.length; i++) {
-                    browseDiv.empty();
+                    
                     displayRental(results[i]);
                 }
             })
