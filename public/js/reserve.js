@@ -1,49 +1,51 @@
 /* eslint-disable prettier/prettier */
 $(document).ready(() => {
   
-    var reserveForm = $("#reserve-button");
-    var rentalReserve = $("#list-selections");
-    var priceReserve = $("#inputPrice");
-    var partyReserve = $("#inputPartySize");
-    var facilityReserve = $("#facility");
+  const reserveForm = $("#reserve-button");
+  const rentalReserve = $("#list-selections");
+  const priceReserve = $("#inputPrice");
+  const partyReserve = $("#inputPartySize");
+  const facilityReserve = $("#facility");
 
-    // When the form is submitted, we validate there's an name and location entered
-    reserveForm.on("click", function (event) {
-        event.preventDefault();
+  // When the form is submitted, we validate there's an name and location entered
+  reserveForm.on("click", (event) => {
+    event.preventDefault();
         
-        var userData = {
-            rental: rentalReserve.val(),
-            price: priceReserve.val(),
-            party: partyReserve.val(),
-            facility: facilityReserve.val()
-        };
+    const userData = {
+      rental: rentalReserve.val(),
+      price: priceReserve.val(),
+      party: partyReserve.val(),
+      facility: facilityReserve.val()
+    };
 
-        // If we have an name and location we run the loginUser function and clear the form
-        listUser(userData.rental, userData.price, userData.party, userData.facility);
-        rentalReserve.val("");
-        priceReserve.val("");
-        partyReserve.val("");
-        facilityReserve.val("");
-    });
+    // If we have an name and location we run the loginUser function and clear the form
+    listUser(userData.rental, userData.price, userData.party, userData.facility);
+    rentalReserve.val("");
+    priceReserve.val("");
+    partyReserve.val("");
+    facilityReserve.val("");
+  });
 
-    function listUser(rental, price, party, facility) { // called on right side 
-        console.log("test");
+  // Function to filter listings in browse - UNDER CONSTRUCTION
+  function listUser(rental, price, party, facility) { 
+    console.log("test");
         
-        $.post("/api/posts/filtered", { // left side is based on sequelize
-            location: rental,
-            price: price,
-            size_of_party: party,
-            facility: facility
-        })
-            .then(function (results) {
-                console.log(results);
-                for (i = 0; i < results.length; i++) {
-                    browseDiv.empty();
-                    displayRental(results[i]);
-                }
-            })
+    $.post("/api/posts/filtered", {
+      location: rental,
+      price: price,
+      size_of_party: party,
+      facility: facility
+    })
+      .then((results) => {
+        console.log(results);
+        browseDiv.empty();
+        for (i = 0; i < results.length; i++) {
+                    
+          displayRental(results[i]);
+        }
+      });
   
-    }
+  }
    
 
   //browseDiv to hold all rental cards
@@ -72,31 +74,31 @@ $(document).ready(() => {
     }
   });
   
-   //Reserve rental function updates status in database to "reserved" when button is clicked
-    function reserveRental() {
+  //Reserve rental function updates status in database to "reserved" when button is clicked
+  function reserveRental() {
 
-        console.log("test")
-        const dataId = $(this).attr("data-id");
+    console.log("test");
+    const dataId = $(this).attr("data-id");
 
-        console.log(dataId);
-        const dataObject = {};
+    console.log(dataId);
+    const dataObject = {};
 
-        dataObject.id = dataId
-        $.get("/api/user_data").then(userData =>{
-          $.ajax({
-            url: '/api/posts/'+userData.id,
-            type: 'PUT',
-            data: dataObject,
+    dataObject.id = dataId;
+    $.get("/api/user_data").then(userData =>{
+      $.ajax({
+        url: "/api/posts/"+userData.id,
+        type: "PUT",
+        data: dataObject,
 
-        }).then(function () {
-            console.log("success");
-            window.location.replace("/members");
-        })
-        //put content here, for now console.log
-        console.log("Rental Reserved");
-        });
+      }).then(() => {
+        console.log("success");
+        window.location.replace("/members");
+      });
+      //put content here, for now console.log
+      console.log("Rental Reserved");
+    });
         
-    };
+  }
 
   // This function displays a message when there are no rentals
   function displayNoRentals() {
