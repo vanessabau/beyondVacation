@@ -10,23 +10,27 @@ module.exports = function(sequelize, DataTypes) {
       }
     },
     location: {
-      //category of rental, e.g. backyard, campsite
+      //rental type, e.g. backyard, campsite
       type: DataTypes.STRING,
       allowNull: false
     },
     address: {
+      //address of listing
       type: DataTypes.STRING,
       allowNull: false
     },
     city: {
+      //city of listing
       type: DataTypes.STRING,
       allowNull: false
     },
     state: {
+      //state of listing
       type: DataTypes.STRING,
       allowNull: false
     },
     zip: {
+      //zip code of listing
       type: DataTypes.INTEGER,
       allowNull: false
     },
@@ -39,7 +43,7 @@ module.exports = function(sequelize, DataTypes) {
       }
     },
     size_of_party: {
-      //number of people can stay at location
+      //number of people that can stay at location
       type: DataTypes.INTEGER,
       validate: {
         len: [1]
@@ -51,10 +55,12 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: false
     },
     reserved: {
+      //True or false to change when a listing is reserved
       type: DataTypes.BOOLEAN,
       defaultValue: false
     },
     reservedBy: {
+      //User id from User model of user who reserved the listing
       type: DataTypes.INTEGER,
       allowNull: true
     }
