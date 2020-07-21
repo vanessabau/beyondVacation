@@ -1,14 +1,14 @@
 $(document).ready(() => {
   // Getting references to our form and inputs
-  const listForm = $("form.list"); 
-  const propertyInput = $("input#property-name"); 
-  const rentalInput = $("select#list-selections"); 
-  const addressInput = $("input#inputAddress"); 
-  const cityInput = $("input#inputCity"); 
-  const stateInput = $("select#inputState"); 
-  const zipInput = $("input#inputZip"); 
-  const priceInput = $("input#inputPrice"); 
-  const partyInput = $("select#inputPartySize"); 
+  const listForm = $("form.list");
+  const propertyInput = $("input#property-name");
+  const rentalInput = $("select#list-selections");
+  const addressInput = $("input#inputAddress");
+  const cityInput = $("input#inputCity");
+  const stateInput = $("select#inputState");
+  const zipInput = $("input#inputZip");
+  const priceInput = $("input#inputPrice");
+  const partyInput = $("select#inputPartySize");
   const facilityInput = $("select#facility");
 
   // When the form is submitted, we validate there's an name and location entered
@@ -75,7 +75,6 @@ $(document).ready(() => {
     party,
     facility
   ) {
-
     //Get request to gather user data, post request to send user input and id to the Posters table
     $.get("/api/user_data").then(data => {
       $.post("/api/posts", {
@@ -101,4 +100,3 @@ $(document).ready(() => {
     });
   }
 });
-

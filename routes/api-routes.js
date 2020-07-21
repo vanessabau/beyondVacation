@@ -100,22 +100,20 @@ module.exports = function(app) {
     });
   });
 
-  // Route to get fully filtered listings
-
-  //this is for the filter, REMEMBER THIS DID ALL 24 SCENARIOS and ONLY 4 edits
+  // Route to get fully filtered listings - UNDER CONSTRUCTION
   app.post("/api/posts/filtered", (req, res) => {
-    console.log("req.body", req.body)
+    console.log("req.body", req.body);
     if (!req.body.location) {
-      delete req.body.location
+      delete req.body.location;
     }
     if (!req.body.price) {
-      delete req.body.price
+      delete req.body.price;
     }
     if (!req.body.size_of_party) {
-      delete req.body.size_of_party
+      delete req.body.size_of_party;
     }
     if (!req.body.facility) {
-      delete req.body.facility
+      delete req.body.facility;
     }
     db.Poster.findAll({
       where: req.body
@@ -160,18 +158,23 @@ module.exports = function(app) {
 
   // Route to update for when a listing is reserved:
   app.put("/api/posts/:resId", (req, res) => {
-    db.Poster.update({ reserved: true, reservedBy: req.params.resId }, { where: { id: req.body.id }, include: db.User}).then(list => {
+    db.Poster.update(
+      { reserved: true, reservedBy: req.params.resId },
+      { where: { id: req.body.id }, include: db.User }
+    ).then(list => {
       res.json(list);
     });
   });
 
   //Route to update listing for when it is unreserved
   app.put("/api/posts/unreserve/:id", (req, res) => {
-    db.Poster.update({ 
-      reserved: false, 
-      reservedBy: null }, 
-      { where: { id: req.params.id } })
-      .then(list => {
+    db.Poster.update(
+      {
+        reserved: false,
+        reservedBy: null
+      },
+      { where: { id: req.params.id } }
+    ).then(list => {
       res.json(list);
     });
   });
