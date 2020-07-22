@@ -4,10 +4,12 @@ const bcrypt = require("bcryptjs");
 module.exports = function(sequelize, DataTypes) {
   const User = sequelize.define("User", {
     firstName: {
+      //first name of user when signing up
       type: DataTypes.STRING,
       allowNull: false
     },
     lastName: {
+      //last name of user when signing up
       type: DataTypes.STRING,
       allowNull: false
     },

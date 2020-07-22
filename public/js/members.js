@@ -1,13 +1,14 @@
+/* eslint-disable prettier/prettier */
 $(document).ready(() => {
   //memberListingsDiv to hold all listings by the member
-  var membersListDiv = $("#member-listings");
+  const membersListDiv = $("#member-listings");
 
   //memberReservationsDiv to hold all reservations by the member
-  var membersResDiv = $("#member-reservations");
+  const membersResDiv = $("#member-reservations");
 
   //Create variables to hold data from databases
-  var memberListings;
-  var memberReservations;
+  let memberListings;
+  let memberReservations;
 
   //Click event for the delete listing buttons
   $(document).on("click", "button.delete", deleteList);
@@ -18,8 +19,8 @@ $(document).ready(() => {
   //GET request to figure out which user is logged in, update the HTML, and initialize functions
   $.get("/api/user_data").then(data => {
     $("#email").text(data.email);
-    $("#first-name").text((data.firstName).toUpperCase());
-    $("#last-name").text((data.lastName).toUpperCase());
+    $("#first-name").text(data.firstName.toUpperCase());
+    $("#last-name").text(data.lastName.toUpperCase());
     $("#id").text(data.id);
 
     getMemberListings();
@@ -31,20 +32,21 @@ $(document).ready(() => {
   // This function displays a message when there are no member listings
   function displayListEmpty() {
     membersListDiv.empty();
-    var messageH5 = $("<h5>");
+    const messageH5 = $("<h5>");
     messageH5.css({ "margin-top": "25px" });
-    messageH5.html("No listings found, navigate <a href='/list'>here</a> to create a new listing.");
+    messageH5.html(
+      "No listings found, navigate <a href='/list'>here</a> to create a new listing."
+    );
     membersListDiv.append(messageH5);
-  };
+  }
 
   //function to retrieve listings by member
   function getMemberListings() {
-    $.get("/api/user_data").then((userData) => {
-      console.log('userData: ' + userData);
+    $.get("/api/user_data").then(userData => {
+      console.log("userData: " + userData);
       console.log("userData.id" + userData.id);
 
-      $.get("/api/posts/members/" + userData.id, function (data) {
-
+      $.get("/api/posts/members/" + userData.id, data => {
         console.log("member listings", data);
         memberListings = data;
         if (!memberListings || !memberListings.length) {
@@ -53,42 +55,42 @@ $(document).ready(() => {
           //Loop through array of data from Posters table and display the member's listings
           for (i = 0; i < memberListings.length; i++) {
             createListCard();
-          };
-        };
+          }
+        }
       });
-    })
-  };
+    });
+  }
 
   //function to create listing card
   function createListCard() {
     //Dynamically create div
-    var newListing = $("<div>");
+    const newListing = $("<div>");
     newListing.addClass("col");
 
     //Store listing data and image source in variables
-    var locationCol = memberListings[i].location;
-    var imgSrc;
+    const locationCol = memberListings[i].location;
+    let imgSrc;
 
     //Switch statement to handle image selection based on location name
     switch (locationCol) {
-      case "RV":
-        imgSrc = "../images/AdobeStock_rv.jpeg";
-        break;
-      case "Campsites":
-        imgSrc = "../images/AdobeStock_default.jpeg";
-        break;
-      case "Farmland":
-        imgSrc = "../images/AdobeStock_farmland.jpeg";
-        break;
-      case "Waterfront":
-        imgSrc = "../images/AdobeStock_waterfront.jpeg";
-        break;
-      case "Backyard":
-        imgSrc = "../images/AdobeStock_backyard.jpeg";
-        break;
-      default:
-        imgSrc = "../images/AdobeStock_campsite.jpeg";
-    };
+    case "RV":
+      imgSrc = "../images/AdobeStock_rv.jpeg";
+      break;
+    case "Campsites":
+      imgSrc = "../images/AdobeStock_default.jpeg";
+      break;
+    case "Farmland":
+      imgSrc = "../images/AdobeStock_farmland.jpeg";
+      break;
+    case "Waterfront":
+      imgSrc = "../images/AdobeStock_waterfront.jpeg";
+      break;
+    case "Backyard":
+      imgSrc = "../images/AdobeStock_backyard.jpeg";
+      break;
+    default:
+      imgSrc = "../images/AdobeStock_campsite.jpeg";
+    }
 
     //Dynamically create html for each listing
     newListing.html(
@@ -118,29 +120,29 @@ $(document).ready(() => {
           </div>
         </div>`
     );
-    //Append each div 
+    //Append each div
     membersListDiv.append(newListing);
-  };
-
+  }
 
   /////////////////////////// Retrieve Member Reservations functions below /////////////////////////
-
 
   //This function displays a message when there are no member reservations
   function displayResEmpty() {
     membersResDiv.empty();
-    var messageH5 = $("<h5>");
+    const messageH5 = $("<h5>");
     messageH5.css({ "margin-top": "25px" });
-    messageH5.html("No reservations found, navigate <a href='/browse'>here</a> to make a reservation.");
+    messageH5.html(
+      "No reservations found, navigate <a href='/browse'>here</a> to make a reservation."
+    );
     membersResDiv.append(messageH5);
-  };
+  }
 
   //function to retrieve reservations by member
   function getMemberReservations() {
     //Retrieve user data. The id from the Users table matches the UserId from the Posters table
-    $.get("/api/user_data").then((userData) => {
+    $.get("/api/user_data").then(userData => {
       //Retrieve posts rented by the member
-      $.get("/api/posts/membersRes/" + userData.id, function (data) {
+      $.get("/api/posts/membersRes/" + userData.id, data => {
         //Testing
         console.log("member reservations", data);
         //If there are no posts matching that id run displayResEmpty()
@@ -151,41 +153,41 @@ $(document).ready(() => {
           for (j = 0; j < memberReservations.length; j++) {
             //Loop through posts and display member's reservations
             createResCard();
-          };
-        };
+          }
+        }
       });
     });
-  };
+  }
 
   //function to create reservation card
   function createResCard() {
     //Dynamically create div
-    var newRes = $("<div>");
+    const newRes = $("<div>");
     newRes.addClass("col");
     //Store data and image information in variables
-    var locationCol = memberReservations[j].location;
-    var imgSrc;
+    const locationCol = memberReservations[j].location;
+    let imgSrc;
 
     //Select image to load based on location name
     switch (locationCol) {
-      case "RV":
-        imgSrc = "../images/AdobeStock_rv.jpeg";
-        break;
-      case "Campsites":
-        imgSrc = "../images/AdobeStock_default.jpeg";
-        break;
-      case "Farmland":
-        imgSrc = "../images/AdobeStock_farmland.jpeg";
-        break;
-      case "Waterfront":
-        imgSrc = "../images/AdobeStock_waterfront.jpeg";
-        break;
-      case "Backyard":
-        imgSrc = "../images/AdobeStock_backyard.jpeg";
-        break;
-      default:
-        imgSrc = "../images/AdobeStock_campsite.jpeg";
-    };
+    case "RV":
+      imgSrc = "../images/AdobeStock_rv.jpeg";
+      break;
+    case "Campsites":
+      imgSrc = "../images/AdobeStock_default.jpeg";
+      break;
+    case "Farmland":
+      imgSrc = "../images/AdobeStock_farmland.jpeg";
+      break;
+    case "Waterfront":
+      imgSrc = "../images/AdobeStock_waterfront.jpeg";
+      break;
+    case "Backyard":
+      imgSrc = "../images/AdobeStock_backyard.jpeg";
+      break;
+    default:
+      imgSrc = "../images/AdobeStock_campsite.jpeg";
+    }
 
     //Dynamically render Member reservations cards
     newRes.html(
@@ -214,31 +216,28 @@ $(document).ready(() => {
         </div>
       </div>`
     );
-    //Append cards 
+    //Append cards
     membersResDiv.append(newRes);
-  };
+  }
 
-////////////////////////////////////// Delete Listing Function Below //////////////////////////////////////
+  ////////////////////////////////////// Delete Listing Function Below //////////////////////////////////////
 
-//This deletes entire listing
+  //This deletes entire listing
   function deleteList() {
-
-    console.log("test")
+    console.log("test");
     const id = $(this).attr("data-id-one");
 
     $.ajax({
-      url: '/api/posts/' + id,
-      type: 'DELETE',
-
-    }).then(function () {
+      url: "/api/posts/" + id,
+      type: "DELETE"
+    }).then(() => {
       console.log("success");
       window.location.replace("/members");
-    })
+    });
     //put content here, for now console.log
-  
-    console.log("Rental Reserved");
-  };
 
+    console.log("Rental Reserved");
+  }
 
   /////////////////////////////////// Delete Reservation function below //////////////////////////////////////
 
@@ -248,10 +247,8 @@ $(document).ready(() => {
     $.ajax({
       url: "/api/posts/unreserve/" + id,
       type: "PUT"
-    }).then(function() {
+    }).then(() => {
       window.location.replace("/members");
-    })
+    });
   }
-
 });
-
