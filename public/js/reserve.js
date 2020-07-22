@@ -7,6 +7,7 @@ $(document).ready(() => {
     var partyReserve = $("#inputPartySize");
     var facilityReserve = $("#facility");
 
+
     // When the form is submitted, we validate there's an name and location entered
     reserveForm.on("click", function (event) {
         event.preventDefault();
@@ -24,8 +25,8 @@ $(document).ready(() => {
         priceReserve.val("");
         partyReserve.val("");
         facilityReserve.val("");
-    });
 
+    });
     function listUser(rental, price, party, facility) { // called on right side 
         console.log("test");
         
@@ -34,16 +35,16 @@ $(document).ready(() => {
             price: price,
             size_of_party: party,
             facility: facility
+        }).then(function (results) {
+                
+            console.log(results);
+            browseDiv.empty();
+            for (i = 0; i < results.length; i++) {
+                displayRental(results[i]);
+            }
         })
-            .then(function (results) {
-                console.log(results);
-                for (i = 0; i < results.length; i++) {
-                    browseDiv.empty();
-                    displayRental(results[i]);
-                }
-            })
-  
     }
+
    
 
   //browseDiv to hold all rental cards
@@ -57,9 +58,10 @@ $(document).ready(() => {
 
 
   /////////////////////////// Functions to populate and display all listings for rent ////////////////////////
-
+   
   //Get request to retrieve data from Posts table and display cards
-  $.get("/api/posts").then(data => {
+  $.get("/api/posts")
+  .then(data => {
     console.log("rentals", data);
     rentalData = data;
     console.log("listingData:", rentalData);
