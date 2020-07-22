@@ -61,18 +61,18 @@ $(document).ready(() => {
    
   //Get request to retrieve data from Posts table and display cards
   $.get("/api/posts")
-  .then(data => {
-    console.log("rentals", data);
-    rentalData = data;
-    console.log("listingData:", rentalData);
-    if (!rentalData || !rentalData.length) {
-      displayNoRentals();
-    } else {
-      for (i = 0; i < rentalData.length; i++) {
-        displayRental(rentalData[i]);
+    .then(data => {
+      console.log("rentals", data);
+      rentalData = data;
+      console.log("listingData:", rentalData);
+      if (!rentalData || !rentalData.length) {
+        displayNoRentals();
+      } else {
+        for (i = 0; i < rentalData.length; i++) {
+          displayRental(rentalData[i]);
+        }
       }
-    }
-  });
+    });
   
   //Reserve rental function updates status in database to "reserved" when button is clicked
   function reserveRental() {
