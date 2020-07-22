@@ -1,6 +1,6 @@
 /* eslint-disable prettier/prettier */
 $(document).ready(() => {
-  
+
   const reserveForm = $("#reserve-button");
   const rentalReserve = $("#list-selections");
   const priceReserve = $("#inputPrice");
@@ -46,7 +46,6 @@ $(document).ready(() => {
       });
   
   }
-   
 
   //browseDiv to hold all rental cards
   const browseDiv = $("#browse-rentals");
@@ -59,9 +58,10 @@ $(document).ready(() => {
 
 
   /////////////////////////// Functions to populate and display all listings for rent ////////////////////////
-
+   
   //Get request to retrieve data from Posts table and display cards
-  $.get("/api/posts").then(data => {
+  $.get("/api/posts")
+  .then(data => {
     console.log("rentals", data);
     rentalData = data;
     console.log("listingData:", rentalData);
