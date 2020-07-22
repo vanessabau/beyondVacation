@@ -125,9 +125,8 @@ module.exports = function(app) {
   // Route to get filtered listings :
   app.get("/api/posts/filtered", (req, res) => {
     db.Poster.findAll({ where: req.body }).then(list => {
-        res.json(list);
-      }
-    );
+      res.json(list);
+    });
   });
 
   // Route to get filtered listings based on category:
